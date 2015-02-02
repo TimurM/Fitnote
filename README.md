@@ -30,3 +30,15 @@ FitNote is a clone of Evernote build on Rails on back-end and with Backbone on t
 
 
 <tt>rake doc:app</tt>.
+
+
+[views]: ./docs/views.md
+[schema]: ./docs/schema.md
+
+
+[phase-one]: ./docs/phases/phase1.md
+[phase-two]: ./docs/phases/phase2.md
+[phase-three]: ./docs/phases/phase3.md
+[phase-four]: ./docs/phases/phase4.md
+[phase-five]: ./docs/phases/phase5.md
+
