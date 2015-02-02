@@ -4,21 +4,24 @@
 ![new-session]
 
 ## Index Page (landing page)
-![feed-show]
-
-## Notebooks Show
-![blog-show]
+![notebooks-Index]
 
 ## Notes Show
-![post-show]
+![notes-show]
 
 ## Notes Form
-![post-form]
+![notes-form]
+
+## Notebook Create
+![notebook-create]
+
+## Notebook Edit
+![notebook-edit]
 
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[new-session]: ./wireframes/new_session.jpeg
+[notebooks-Index]: ./wireframes/NotebooksIndex.jpeg
+[notes-show]: ./wireframes/NotesShow.jpeg
+[notes-form]: ./wireframes/NotesForm.jpeg
+[notebook-create]: ./wireframes/CreateNotebooks.jpeg
+[notebook-edit]: ./wireframes/EditNotebooks.jpeg
