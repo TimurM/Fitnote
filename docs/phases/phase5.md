@@ -1,4 +1,4 @@
-# Phase 5: Searching for Blogs and Posts
+# Phase 5: Tagging Notes
 
 ## Rails
 ### Models
@@ -13,12 +13,9 @@ Api::PostsController (search)
 ### Models
 
 ### Collections
-* SearchBlogs
-* SearchPosts
+*
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogSearchItem and PostShow subviews)
+* Tagging View
 
 ## Gems/Libraries
-

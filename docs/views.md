@@ -3,20 +3,18 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
+## Index Page (landing page)
 ![feed-show]
 
-## Blog Show
+## Notebooks Show
 ![blog-show]
 
-## Post Show
+## Notes Show
 ![post-show]
 
-## Post Form
+## Notes Form
 ![post-form]
 
-## Search Results
-![search-results]
 
 [new-session]: ./wireframes/new_session.png
 [feed-show]: ./wireframes/feed_show.png

@@ -1,21 +1,23 @@
-# Phase 4: User Feeds
+# Phase 4: Editing and Displaying Notes (~2 days)
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::NotesController
 
 ### Views
-posts/feed.json.jbuilder
+
 
 ## Backbone
 ### Models
 
 ### Collections
-* FeedPosts
+* Notes
 
 ### Views
-* FeedShow (composite view, contains PostShow subviews)
+* NoteShow
 
 ## Gems/Libraries
+* Filepicker
+* Markdown-js
