@@ -3,4 +3,8 @@ Fitnote::Application.routes.draw do
 
   resources :users
   resource :session
+
+  namespace :api do
+    resources :notebooks
+  end
 end

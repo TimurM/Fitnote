@@ -1,0 +1,17 @@
+<h1>Rename Notebook</h1>
+
+<form action='<%= api_notebook_url(@notebook) %>' method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+
+  <label>
+    Notebook Name
+    <input type="text" name="notebook[name]" value="">
+  </label>
+  <br>
+  <input type="submit" value="Save">
+</form>

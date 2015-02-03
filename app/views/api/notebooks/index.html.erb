@@ -1,0 +1,12 @@
+<h1>Your Noteboks</h1>
+
+<% @notebooks.each do |notebook| %>
+  <%= notebook.name %>
+  <%= button_to "Edit", edit_api_notebook_url(notebook), method: :get %>
+  <%= button_to "Delete", api_notebook_url(notebook), method: :delete %>
+  <br>
+
+<% end %>
+<br>
+<br>
+<%= link_to 'Create a New Notebook', new_api_notebook_url %>
