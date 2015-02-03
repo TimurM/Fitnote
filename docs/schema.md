@@ -12,9 +12,8 @@ title       | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
 title       | string    | not null
-body        | string    |
+body        | text   |
 
 ## tags
 column name | data type | details

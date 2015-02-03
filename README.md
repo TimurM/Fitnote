@@ -3,13 +3,13 @@
 ## Minimum Viable Product
 FitNote is a clone of Evernote build on Rails on back-end and with Backbone on the front-end.
 
-- [x] Create accounts (register)
-- [x] Create sessions (log in)
-- [x] Create notebooks
-- [x] Create notes
-- [x] Tag notes
-- [x] View notebooks and notes
-- [x] Search for notebooks and notes
+- [ ] Create accounts (register)
+- [ ] Create sessions (log in)
+- [ ] Create notebooks
+- [ ] Create notes
+- [ ] Tag notes
+- [ ] View notebooks and notes
+- [ ] Search for notebooks and notes
 
 ## Design Docs
 * [View Wireframes][views]:
@@ -21,8 +21,8 @@ FitNote is a clone of Evernote build on Rails on back-end and with Backbone on t
 In Phase 1, I'm planning on setting up authentication for the User to create an account and sign in. In addition, I'm going to create Schema, Models and Controllers to create notebooks and notes in RAILS. Before starting Phase 2, I will also push the app to Heroku.
 * [Phase1][phase-one]
 
-### Phase 2: JSON API and Backbone Views (~2 days)
-In this Phase, I will add api routes to serve notebooks and notes as JSON and then add Backbone Models and Collections to fetch data from my routes. I will also create existing Rails Views in Backbone.
+### Phase 2: Backbone Views (~2 days)
+In this Phase, I will add Backbone Models and Collections to fetch data from my routes. I will also create existing Rails Views in Backbone.
 * [Phase2][phase-two]
 
 ### Phase 3: Editing and Displaying Notebooks (~1 days )
