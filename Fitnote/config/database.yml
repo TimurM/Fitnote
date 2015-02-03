@@ -51,10 +51,10 @@ test:
   username: Fitnote
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: Fitnote_production
-  pool: 5
-  username: Fitnote
-  password:
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: Fitnote_production
+#   pool: 5
+#   username: Fitnote
+#   password:
