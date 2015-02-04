@@ -1,5 +1,5 @@
 module Api
-  class NotesController < ApplicationController
+  class NotesController < ApiController
 
     def index
       @notes = Note.all

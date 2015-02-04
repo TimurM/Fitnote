@@ -1,12 +1,18 @@
 module Api
-  class NotebooksController < ApplicationController
+  class NotebooksController < ApiController
     def index
       @notebooks = current_user.notebooks
-
+      render json: @notebooks
     end
 
     def show
-      @notebook = Notebook.find(params[:id])
+      @notebook = Notebook.includes(:owners, :notes).find(params[:id])
+
+      if @notebook.is_owner?(current_user)
+        render :show
+      else
+        render json: ["This is not your notebook"], status: 403
+      end
     end
 
     def new
@@ -18,10 +24,9 @@ module Api
       @notebook.owner_id = current_user.id
 
       if @notebook.save
-        redirect_to api_notebooks_url
+        render json: @notebook
       else
-        flash.now[:errors] = @notebook.errors.full_messages
-        render :new
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -33,10 +38,9 @@ module Api
       @notebook = Notebook.find(params[:id])
 
       if @notebook.update(notebook_params)
-        redirect_to api_notebooks_url
+        render json: @notebook
       else
-        flash.now[:errors] = @notebook.errors.full_messages
-        render :edit
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -44,9 +48,9 @@ module Api
       @notebook = Notebook.find(params[:id])
 
       if @notebook.destroy
-        redirect_to api_notebooks_url
+        render json: {}
       else
-        flash.now[:errors] = @notebook.errors.full_messages
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 
