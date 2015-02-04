@@ -1,5 +1,7 @@
 class Notebook < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :owner_id, presence: true
+
+  has_many :notes
 
   belongs_to(
     :owner,

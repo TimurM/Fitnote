@@ -5,15 +5,16 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
+name        | string    | not null
 
 
 ## notes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+notebook_id | integer   | not null
 title       | string    | not null
-body        | text   |
+body        | text      |
 
 ## tags
 column name | data type | details
@@ -33,5 +34,6 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 email           | string    | not null, unique
+username        | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, unique

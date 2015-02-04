@@ -5,6 +5,10 @@ module Api
 
     end
 
+    def show
+      @notebook = Notebook.find(params[:id])
+    end
+
     def new
       # render :new
     end

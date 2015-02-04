@@ -11,10 +11,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'newrelic_rpm'
+gem 'backbone-on-rails'
+gem 'bootstrap-sass'
+
+
 
 group :development do
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate'
 end
 
 group :doc do

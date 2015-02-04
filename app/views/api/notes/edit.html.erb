@@ -1,0 +1,27 @@
+<h1>Edit A New Note</h1>
+
+<form action='<%= api_note_url(@note) %>' method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+
+  <label>
+    Note Title
+    <input type="text" name="note[title]" value="">
+  </label>
+  <br>
+  <label>
+    Note Body
+    <textarea name="note[body]"></textarea>
+  </label>
+  <br>
+  <label>
+    Notebook id:
+    <input type="text" name="note[notebook_id]">
+  </label>
+  <br>
+  <input type="submit" value="Update Notebook">
+</form>

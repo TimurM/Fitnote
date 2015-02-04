@@ -1,0 +1,7 @@
+<h1><%= @note.title %></h1>
+
+<p><%= @note.body %></p>
+
+<%= link_to 'Edit', edit_api_note_url(@note) %><br>
+<%= link_to 'Create New Note', new_api_note_url %><br>
+<%= link_to 'Delete Note', api_note_url(@note), method: :delete %>

@@ -6,5 +6,6 @@ Fitnote::Application.routes.draw do
 
   namespace :api do
     resources :notebooks
+    resources :notes
   end
 end
