@@ -4,8 +4,10 @@ Fitnote::Application.routes.draw do
   resources :users
   resource :session
 
-  namespace :api, defaults: {format: :json} do
+  namespace :api do
     resources :notebooks
     resources :notes
   end
 end
+
+# , defaults: {format: :json} 
