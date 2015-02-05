@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bootstrap";
+
+ body {
+   padding-top: 50px;
+ }
+
+.group:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+.navbar-default {
+  background-color: #25a54f;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-nav > li > a {
+  color: white;
+}
+
+.header-view {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  background-color: #F0F0F0;;
+  border-top: 1px solid #b3b3b3;
+}
+
+#content {
+  position: relative;
+  width: 100%;
+  background: yellow;
+}
+
+#sidebar {
+  display: block;
+  float: left;
+  background: #F0F0F0;;
+  width: 20%;
+  border: 1px solid #b3b3b3;
+
+}
+
+#notes-list {
+  float: left;
+  background: #F0F0F0;;
+  display: block;
+  width: 30%;
+  border: 1px solid #b3b3b3;
+}
+
+#note-detail {
+  float: left;
+  width: 100px;
+  background: #F0F0F0;;
+  display: block;
+  width: 40%;
+  border: 1px solid #b3b3b3;
+}

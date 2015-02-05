@@ -2,22 +2,14 @@
 <html>
 <head>
   <title>Fitnote</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render partial: "layouts/header" %>
 
-<% if signed_in? %>
-<%= current_user.username %>
-<%= button_to "Sign Out", session_url, :method => :delete %>
-<% else %>
-<%= link_to "Sign In", new_session_url %>
-<%= link_to "Sign Up", new_user_url %>
-<% end %>
-
-<br>
-<%= render "layouts/errors" %>
+  <%= render "layouts/errors" %>
 <%= yield %>
 
 </body>
