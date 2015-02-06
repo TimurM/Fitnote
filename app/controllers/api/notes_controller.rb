@@ -19,8 +19,7 @@ module Api
       if @note.save
         redirect_to api_note_url(@note)
       else
-        flash.now[:errors] = @note.errors.full_messages
-        render :new
+        render json: @note.errors.full_messages, status: :unprocessable_entity
       end
     end
 

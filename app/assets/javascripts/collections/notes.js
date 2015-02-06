@@ -2,7 +2,7 @@ Fitnote.Collections.Notes = Backbone.Collection.extend({
   model: Fitnote.Models.Note,
   url: 'api/notes',
 
-  getOrFetch: function() {
+  getOrFetch: function(id) {
     var note = this.get(id),
       notes = this;
 
