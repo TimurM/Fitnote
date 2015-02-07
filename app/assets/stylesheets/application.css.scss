@@ -58,7 +58,7 @@
   position: relative;
   overflow: auto;
   background: #E4E8EA;
-  width: 12%;
+  width: 15%;
   border-right: 1px solid #b3b3b3;
 
 }
@@ -67,15 +67,16 @@
   float: left;
   background: white;
   display: block;
-  width: 20%;
-  border: 1px solid #b3b3b3;
+  width: 25%;
+  border-top: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
 }
 
 #note-detail {
   float: left;
   background: #F0F0F0;
   display: block;
-  width: 68%;
+  width: 60%;
   border: 1px solid #b3b3b3;
 }
 
@@ -175,7 +176,6 @@ ul.notebooks-list-group > li {
 
 ul.notebooks-list-group > li:hover {
   background: #d1d4d7;
-
 }
 
 ul.notebooks-list-group > li > a {
@@ -188,6 +188,91 @@ ul.notebooks-list-group > li > a {
 ul.notebooks-list-group > li > a:hover {
   text-decoration: none;
 }
+
+.show-notebook-header {
+  font-size: 16px;
+  line-height: 36px;
+  color: #404040;
+  border-bottom: 1px solid #b5b5b5;
+  padding-left: 10px;
+  padding-top: 5px;
+  white-space: nowrap;
+  height: 44px;
+  margin-left: 0px;
+}
+
+.show-notebook-header > i {
+  float: left;
+  margin-right: 5px;
+  display: block;
+  margin-left: 0px;
+  color: #ABABAB;
+}
+
+.show-notebook-header > p {
+  float: left;
+  margin-left: 5px;
+  font-size: 16px;
+  color: #404040;
+}
+
+div.notes-shortview {
+  float: left;
+  margin-left: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+#notes-summary {
+  display: block;
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  // margin-top: 0px;
+  // padding-top: 0px;
+}
+
+#notes-summary > div > li {
+  border-bottom: 1px solid #b3b3b3;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+#notes-summary > div > li:hover {
+  background: #d1d4d7;
+}
+
+.note-preview-title {
+  font-size: 12px;
+  color: black;
+  padding-left: 10px;
+  font-weight: bold;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.note-preview-body {
+  padding-top: 1px;
+  padding-left: 10px;
+  font-size: 11px;
+  line-height: 16px;
+  height: 48px;
+  color: #1d1d1d;
+  padding-bottom: 2px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.note-preview-time {
+  float: left;
+  display: inline-block;
+  color: #4a8db8;
+  padding-right: 6px;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 16px;
+}
+
 
 .note-form-header-left > .dates > li {
   float: left;

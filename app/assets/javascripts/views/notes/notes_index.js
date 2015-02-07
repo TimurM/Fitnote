@@ -1,9 +1,8 @@
 Fitnote.Views.NoteIndex = Backbone.View.extend({
   template: JST['notes/show'],
-  tagName: 'li',
 
   initialize: function() {
-    
+
   },
 
   render: function() {
