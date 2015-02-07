@@ -122,20 +122,17 @@
 }
 
 ul.dropdown-menu.dropdown-menu-right {
-  background: #E4E8EA;
-  font-size: 11px;
-  display: block;
+  background: #f4f6f7;
+  z-index: 100;
+  position: absolute;
+  padding: 7px 0px;
+  font-size: 12px;
+  // display: block;
+  border-radius: 5px solid gray;
   font-family: sans-serif;
-  width: 100px;
-  line-height: 17px;
+  width: 120px;
 }
 
-.notebooks-list-group {
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  display: block;
-}
 
 .note-form-header-left {
   display: block;
@@ -147,6 +144,51 @@ ul.dropdown-menu.dropdown-menu-right {
   border-bottom: 1px solid #b3b3b3;
 }
 
+ul.notebooks-list-group {
+  padding-top: 8px;
+  padding-left: 0px;
+  border-bottom: 1px solid #ced8df;
+  list-style: none;
+  display: block;
+  font-family: sans-serif;
+  font-size: 16px;
+  height: 560px;
+  padding-bottom: 16px;
+  width: 205px;
+  margin-left: 0px;
+}
+
+ul.notebooks-list-group > li {
+  max-width: 100%;
+  color: #555e64;
+  list-style: none;
+  padding-left: 0px;
+  font-size: 12px;
+  height: 25px;
+  // display: inline-block;
+  vertical-align: top;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  padding-right: 0px;
+  padding-top: 5px;
+}
+
+ul.notebooks-list-group > li:hover {
+  background: #d1d4d7;
+
+}
+
+ul.notebooks-list-group > li > a {
+  margin-left: 7px;
+  padding-buttom: 10px;
+  color: #555e64;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+ul.notebooks-list-group > li > a:hover {
+  text-decoration: none;
+}
+
 .note-form-header-left > .dates > li {
   float: left;
   list-style: none;
@@ -156,6 +198,10 @@ ul.dropdown-menu.dropdown-menu-right {
   color: #7d7e80;
   padding-left: 14px;
   line-height: 34px;
+}
+
+.note-form-header-left > .dates {
+  padding-left: 0;
 }
 
 .note-form-header-right {

@@ -17,15 +17,15 @@
     </div>
   </div>
 
-  <div class="notebooks-list-group">
-    <ul class="notebooks">
+    <ul class="notebooks notebooks-list-group">
       <% notebooks.each(function(notebook) { %>
         <li>
+          <i class='glyphicon glyphicon-book'></i>
           <a href="#/notebooks/<%= notebook.id %>">
             <%= notebook.escape('name') %>
           </a>
         </li>
       <% }) %>
     </ul>
-  </div>
+
 </div>
