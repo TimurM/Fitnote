@@ -20,15 +20,19 @@ Fitnote.Views.NotebookForm = Backbone.View.extend({
     var attrs = $(event.currentTarget).serializeJSON(),
     that = this;
     this.model.set(attrs);
-    this.model.save({}, {
-      success: function() {
-        that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("/notebooks/" + that.model.get('notebook_id'), {
-          trigger: true });
-      },
-      error: function (model, response) {
-      }
-    });
+    var saveModel = function(){
+      that.model.save({}, {
+        success: function() {
+          that.collection.add(that.model, { merge: true });
+          Backbone.history.navigate("/notebooks/" + that.model.id, {
+            trigger: true });
+          },
+          error: function (model, response) {
+          }
+        });
+    }
+    this.$('#myModal').on('hidden.bs.modal', saveModel);
+    this.$('#myModal').modal('hide');
   }
 
 });

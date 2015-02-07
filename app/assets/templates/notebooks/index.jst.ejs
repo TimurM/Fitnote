@@ -1,11 +1,31 @@
-<h2 class="notebooks-header">Notebooks</h2>
-<a href="#" class="new-notebook">New Notebook</a>
-<ul class="notebooks">
-  <% notebooks.each(function(notebook) { %>
-    <li>
-      <a href="#/notebooks/<%= notebook.id %>">
-        <%= notebook.escape('name') %>
-      </a>
-    </li>
-  <% }) %>
-</ul>
+<div class="sidebar-notebooks-item">
+  <div class="notebooks-header-group group">
+    <div class="notebooks-header-left">
+      Notebooks
+    </div>
+
+    <div class="notebooks-header-right">
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              <span class="glyphicon glyphicon-collapse-down"></span>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation"><a class="new-notebook" role="menuitem" tabindex="-1" href="#">New Notebook</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="notebooks-list-group">
+    <ul class="notebooks">
+      <% notebooks.each(function(notebook) { %>
+        <li>
+          <a href="#/notebooks/<%= notebook.id %>">
+            <%= notebook.escape('name') %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>

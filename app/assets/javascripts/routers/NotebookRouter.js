@@ -13,7 +13,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
   routes: {
     "" : "index",
     "notebooks/:id/notes/:note_id": 'noteShow',
-    "notebooks/new" : 'newNotebook',
     "notebooks/:id" : 'notebookShow',
     "notes/new" : 'newNote'
   },
@@ -86,17 +85,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
         });
         this._swapView(noteDetailShow, '#note-show-detail');
     }
-  },
-
-  newNotebook: function() {
-    var newNoteBook = new Fitnote.Models.Notebook();
-
-    var newForm = new Fitnote.Views.NotebookForm({
-      model: newNoteBook,
-      collection: this.currentNotebook
-    });
-    // this.$('#sidebar').html(newForm);
-    this._swapView(newForm, '#new-notebook');
   },
 
   newNote: function() {

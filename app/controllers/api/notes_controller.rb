@@ -34,8 +34,7 @@ module Api
       if @note.update(note_params)
         redirect_to api_note_url(@note)
       else
-        flash.now[:errors] = @note.errors.full_messages
-        render :edit
+        render json: @note.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -45,7 +44,7 @@ module Api
       if @note.destroy
         redirect_to api_notebooks_url
       else
-        flash.now[:errors] = @note.errors.full_messages
+        render json: @note.errors.full_messages, status: :unprocessable_entity
       end
     end
 

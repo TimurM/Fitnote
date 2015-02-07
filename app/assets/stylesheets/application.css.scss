@@ -55,9 +55,11 @@
 #sidebar {
   display: block;
   float: left;
-  background: #F0F0F0;
-  width: 20%;
-  border: 1px solid #b3b3b3;
+  position: relative;
+  overflow: auto;
+  background: #E4E8EA;
+  width: 12%;
+  border-right: 1px solid #b3b3b3;
 
 }
 
@@ -65,15 +67,148 @@
   float: left;
   background: white;
   display: block;
-  width: 30%;
+  width: 20%;
   border: 1px solid #b3b3b3;
 }
 
 #note-detail {
   float: left;
-  width: 100px;
-  background: white;
+  background: #F0F0F0;
   display: block;
-  width: 40%;
+  width: 68%;
   border: 1px solid #b3b3b3;
+}
+
+.sidebar-notebooks-item {
+  position: relative;
+}
+
+
+.notebooks-header-group {
+  font-size: 11px;
+  font-weight: bold;
+  border-bottom: 1px solid #ced8df;
+  color: #555e64;
+  position: relative;
+  display: block;
+}
+
+.notebooks-header-left {
+  float: left;
+  width: 70%;
+  cursor: pointer;
+  padding: 0px;
+  margin: 10px;
+  display: block;
+}
+
+.notebooks-header-right {
+  float: right;
+  margin: 1px;
+  padding: 0px;
+  height: 34px;
+  vertical-align: baseline;
+  display: block;
+  color: #555e64;
+  cursor: pointer;
+  border: none;
+}
+
+#dropdownMenu1 {
+  margin: 5px;
+  padding: 5px;
+  background: #E4E8EA;
+  border: none;
+}
+
+ul.dropdown-menu.dropdown-menu-right {
+  background: #E4E8EA;
+  font-size: 11px;
+  display: block;
+  font-family: sans-serif;
+  width: 100px;
+  line-height: 17px;
+}
+
+.notebooks-list-group {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.note-form-header-left {
+  display: block;
+  height: 34px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background: #F0F0F0;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.note-form-header-left > .dates > li {
+  float: left;
+  list-style: none;
+  display: list-item;
+  margin-left: 0px;
+  font-size: 12px;
+  color: #7d7e80;
+  padding-left: 14px;
+  line-height: 34px;
+}
+
+.note-form-header-right {
+  float: right;
+  display: block;
+  position: relative;
+  padding-right: 12px;
+  padding: 0 7px;
+  line-height: 34px;
+  cursor: pointer;
+}
+
+.note-form-header-right .delete-note {
+  background: transparent;
+  color: #7a7d81;
+  font-size: 12px;
+}
+
+.note-form-content {
+  background: white;
+  border: 1px solid #A7A7A7;
+  border-radius: 3px;
+  margin: 12px;
+  padding: 10px;
+  min-height: 336px;
+  overflow: auto;
+}
+
+#note-title {
+  padding-bottom: 4px;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #A7A7A7;
+  outline: none;
+  font-family: "Caecilia LT Std";
+  font-size: 15px;
+  height: 32px;
+  color: #7b7c7e;
+  line-height: 15px;
+}
+
+
+.form-control#body {
+  min-height: 300px;
+  overflow-y: hidden;
+  border-radius: 0px;
+  font-size: 14px;
+  width: 100%;
+  // margin: 2px 1px 1px 1px;
+  margin-top: 10px;
+  font-family: Helvetica, Arial, "Droid Sans", sans-serif;
+  // padding: 1px;
+  border: 0;
+  border-color: none;
+  display: block;
 }

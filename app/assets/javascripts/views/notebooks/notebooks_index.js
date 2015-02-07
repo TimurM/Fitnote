@@ -10,7 +10,12 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
   newNotebook: function(event){
     event.preventDefault();
     // var modal = JST["notebooks/form"]();
-    var $form = new Fitnote.Views.NotebookForm();
+
+    var newNoteBook = new Fitnote.Models.Notebook();
+    var $form = new Fitnote.Views.NotebookForm({
+      model: newNoteBook,
+      collection: Fitnote.notebooks 
+    });
     this.$el.append($form.render().$el);
     // this.$('#myModal').modal();
   },

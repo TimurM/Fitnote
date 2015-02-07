@@ -17,10 +17,9 @@ module Api
       @notebook.owner_id = current_user.id
 
       if @notebook.save
-        redirect_to api_notebooks_url
+        render json: @notebook
       else
-        flash.now[:errors] = @notebook.errors.full_messages
-        render :new
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -34,8 +33,7 @@ module Api
       if @notebook.update(notebook_params)
         redirect_to api_notebooks_url
       else
-        flash.now[:errors] = @notebook.errors.full_messages
-        render :edit
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -45,7 +43,7 @@ module Api
       if @notebook.destroy
         redirect_to api_notebooks_url
       else
-        flash.now[:errors] = @notebook.errors.full_messages
+        render json: @notebook.errors.full_messages, status: :unprocessable_entity
       end
     end
 

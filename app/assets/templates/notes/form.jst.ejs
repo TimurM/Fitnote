@@ -1,12 +1,34 @@
 
-<form>
-  <label for="title">Title
-    <input type="text" name="title" value="Untitled">
-  </label>
-  <br>
-  <label for="body">Body
-    <textarea name="body" id="body"></textarea>
-  </label>
+<div class="note-form-top">
 
-  <input type="submit">
-</form>
+</div>
+
+<div class="note-form-buttom">
+  <div class="note-form-header-right">
+    <div class="delete-note">DELETE
+    </div>
+  </div>
+
+  <div class="note-form-header-left">
+    <ul class="dates">
+      <li>
+        Created: <%= moment(note.escape("created_at")).format('MMM D, YYYY') %>
+      </li>
+      <li>
+        Modified: <%= moment(note.escape("updated_at")).format('MMM D, YYYY') %>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="note-form-content">
+  <form class="note-title">
+  <div class="form-group">
+    <input id='note-title' type="text" name="title" value="<%= note.get("title") %>" class="form-control">
+
+    <textarea class="form-control" name="body" id="body" >"<%= note.get('body') %>"</textarea>
+  </div>
+    <input type="submit" value="update">
+  </form>
+</div>

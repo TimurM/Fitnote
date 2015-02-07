@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.serializeJSON
+//= require moment
 //= require jquery_ujs
 //= require bootstrap
 //= require underscore
