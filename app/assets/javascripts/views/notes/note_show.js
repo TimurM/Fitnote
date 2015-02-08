@@ -2,6 +2,10 @@ Fitnote.Views.NoteShow = Backbone.View.extend({
   template: JST['notes/form'],
   deleteTemplate: JST['notes/delete'],
 
+  initialize: function() {
+    this.listenTo(this.model, "sync reset add", this.render)
+  },
+
   events: {
     'submit form' : 'update',
     'click .delete-note' : 'deleteConfirmation',
