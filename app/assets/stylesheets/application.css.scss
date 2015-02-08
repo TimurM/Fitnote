@@ -15,9 +15,9 @@
  @import "bootstrap";
  @import "bootstrap";
 
- body {
-   padding-top: 50px;
- }
+ // body {
+ //   padding-top: 50px;
+ // }
 
 .group:after {
    content: "";
@@ -26,7 +26,36 @@
 }
 
 .navbar-default {
-  background-color: #25a54f;
+  background: #25a54f;
+  min-height: 20px;
+  line-height: 0px;
+  height: 30px;
+}
+
+.navbar-default .navbar-right {
+  margin-bottom: 10px;
+}
+
+.navbar-default .navbar-nav > li > div {
+  padding: 0px;
+  color: white;
+  // font-weight: bold;
+  font-size: 16px;
+  padding-right: 20px;
+  letter-spacing: 1px;
+  font-family: caecilia,Times,serif;
+
+}
+
+.navbar-default .navbar-nav > li > div > span.glyphicon {
+  font-size: 18px;
+  padding-top: 3px;
+  padding-right: 5px;
+}
+
+.navbar-default .navbar-nav > li > div > span.caret {
+  font-size: 18px;
+
 }
 
 .navbar-brand {
@@ -49,7 +78,7 @@
 #content {
   position: relative;
   width: 100%;
-  background: yellow;
+  // background: yellow;
 }
 
 #sidebar {
