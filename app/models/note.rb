@@ -6,14 +6,14 @@ class Note < ActiveRecord::Base
   has_many(
     :taggings,
     class_name: "Tagging",
-    foreign_key: :tag_id,
+    foreign_key: :note_id,
     primary_key: :id,
     dependent: :destroy
   )
 
   has_many(
   :tags,
-  through: :tagging,
+  through: :taggings,
   source: :tag
   )
 
