@@ -2,6 +2,10 @@ Fitnote.Collections.Notes = Backbone.Collection.extend({
   model: Fitnote.Models.Note,
   url: 'api/notes',
 
+  comparator: function(note) {
+    return note.get("updated_at");
+  },
+
   getOrFetch: function(id) {
     var note = this.get(id),
       notes = this;

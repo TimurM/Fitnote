@@ -1,8 +1,8 @@
 module Api
-  class NotesController < ApplicationController
-
+  class NotesController < ApiController
+    
     def index
-      @notes = Note.all
+      @notes = current_user.notes
     end
 
     def show

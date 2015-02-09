@@ -3,7 +3,7 @@ Fitnote.Views.NoteShow = Backbone.View.extend({
   deleteTemplate: JST['notes/delete'],
 
   initialize: function() {
-    this.listenTo(this.model, "sync reset add", this.render)
+    this.listenTo(this.model, "sync reset add", this.render);
   },
 
   events: {

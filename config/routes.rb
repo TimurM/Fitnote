@@ -7,7 +7,9 @@ Fitnote::Application.routes.draw do
   namespace :api do
     resources :notebooks
     resources :notes
+    resources :tags
+    resources :taggings
   end
 end
 
-# , defaults: {format: :json} 
+# , defaults: {format: :json}

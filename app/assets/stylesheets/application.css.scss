@@ -112,7 +112,7 @@ div.new-btn {
   width: 100px;
   height: 30px;
   cursor: default;
-  margin-left: 88px;
+  margin-left: 100px;
   margin-top: 10px;
   display: inline-block;
   border-radius: 3px;
@@ -168,10 +168,12 @@ div.new-btn > a:hover {
 .notebooks-header-group {
   font-size: 11px;
   font-weight: bold;
+  border-top: 1px solid #b3b3b3;
   border-bottom: 1px solid #ced8df;
   color: #555e64;
   position: relative;
   display: block;
+  background: #e0e5e7;
 }
 
 .notebooks-header-left {

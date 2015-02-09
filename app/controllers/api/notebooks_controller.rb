@@ -1,5 +1,6 @@
 module Api
-  class NotebooksController < ApplicationController
+  class NotebooksController < ApiController
+
     def index
       @notebooks = current_user.notebooks
     end

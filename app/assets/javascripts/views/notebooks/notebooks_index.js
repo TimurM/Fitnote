@@ -2,12 +2,12 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
   template: JST['notebooks/index'],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "sync reset add remove", this.render)
   },
   events: {
     "click .new-notebook": "newNotebook"
   },
-  
+
   newNotebook: function(event){
     event.preventDefault();
     // var modal = JST["notebooks/form"]();
