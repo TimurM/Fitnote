@@ -1,0 +1,16 @@
+  <div class="note-form-header-right">
+    <div class="delete-note">DELETE
+    <i class="glyphicon glyphicon-trash"></i>
+    </div>
+  </div>
+
+  <div class="note-form-header-left">
+    <ul class="dates">
+      <li>
+        Created: <%= moment(note.escape("created_at")).format('MMM D, YYYY') %>
+      </li>
+      <li>
+        Modified: <%= moment(note.escape("updated_at")).format('MMM D, YYYY') %>
+      </li>
+    </ul>
+  </div>

@@ -80,7 +80,10 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
         var notebook = Fitnote.notebooks.getOrFetch(id);
         var note = notebook.notes().getOrFetch(note_id);
 
-        var noteDetailShow = new Fitnote.Views.NoteShow({
+        // var noteDetailShow = new Fitnote.Views.NoteShow({
+        //   model: note
+        // });
+        var noteDetailShow = new Fitnote.Views.NoteDetails({
           model: note
         });
         this._swapView(noteDetailShow, '#note-show-detail');
