@@ -12,6 +12,7 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
 
   routes: {
     "" : "index",
+    '1' : 'landingPage',
     "notebooks/:id/notes/:note_id": 'noteShow',
     "notebooks/:id" : 'notebookShow',
     "notes/new" : 'newNote'
@@ -35,6 +36,11 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     });
     this._notebooks = Fitnote.notebooks;
     this.$sidebar.html(indexView.render().$el);
+  },
+
+  landingPage: function() {
+    var landingPage = Fitnote.Views.Landing(); 
+    this._swapView(landingPage, '')
   },
 
   notebookShow: function(id, note_id, callback) {

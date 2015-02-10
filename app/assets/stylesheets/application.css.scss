@@ -15,9 +15,11 @@
  @import "bootstrap";
  @import "bootstrap";
 
- // body {
- //   padding-top: 50px;
- // }
+ body {
+   background: url('background.jpg');
+   display: compact;
+   background-size: 1440px 800px;
+ }
 
 .group:after {
    content: "";
@@ -30,6 +32,55 @@
   min-height: 20px;
   line-height: 0px;
   height: 30px;
+}
+
+#sign-in-form {
+  margin-top: 200px;
+  margin-left: 50px;
+  width: 430px;
+  height: 480px;
+  padding-top: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 30px;
+  background-color: rgba(255,255,255,0.9);
+}
+
+#sign-in-form > .demo {
+  text-align: center;
+  padding: 30px;
+}
+
+#sign-in-form > h1 {
+  color: #5FB336;
+  font-size: 38px;
+  // margin-left: 30px;
+  text-align: center;
+}
+
+#sign-in-form > p {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  color: #757778;
+}
+
+#sign-in-form > .sign-in {
+  padding-top: 20px;
+  // padding-left: 10px;
+  padding-right: 73px;
+  text-align: center;
+}
+
+.sign-button {
+  padding-top: 20px;
+}
+
+.evernote-green {
+  background-color: #4CA52E;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .navbar-default .navbar-right {
@@ -450,7 +501,7 @@ div.notes-shortview {
 
 .new-tag > input {
   width: 60px;
-  border: none; 
+  border: none;
 }
 
 .tags {
