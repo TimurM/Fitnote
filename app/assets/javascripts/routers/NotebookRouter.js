@@ -5,7 +5,8 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     this.currentNotebook = {};
     this._currentView = {};
 
-    this.$sidebar = $('#sidebar-notebooks'),
+    // this.$sidebar = $('#sidebar-notebooks'),
+    this.$sidebar = $('.sidebar-sections'),
     this.$rootEl = $('#note-list-items'),
     this.$notedetail = $('#note-show-detail')
   },
@@ -31,17 +32,20 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
       },
     });
 
-    var indexView = new Fitnote.Views.NotebooksIndex({
+    // var indexView = new Fitnote.Views.NotebooksIndex({
+    //   collection: Fitnote.notebooks
+    // });
+    var indexView = new Fitnote.Views.Index({
       collection: Fitnote.notebooks
     });
     this._notebooks = Fitnote.notebooks;
     this.$sidebar.html(indexView.render().$el);
   },
 
-  landingPage: function() {
-    var landingPage = Fitnote.Views.Landing(); 
-    this._swapView(landingPage, '')
-  },
+  // landingPage: function() {
+  //   var landingPage = Fitnote.Views.Landing();
+  //   this._swapView(landingPage, '')
+  // },
 
   notebookShow: function(id, note_id, callback) {
     if (!this._notebooks) {

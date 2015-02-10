@@ -44,6 +44,7 @@
   padding-left: 25px;
   padding-bottom: 30px;
   background-color: rgba(255,255,255,0.9);
+  border-radius: 10px;
 }
 
 #sign-in-form > .demo {
@@ -189,7 +190,9 @@ div.new-btn > a:hover {
   position: relative;
   overflow: auto;
   background: #E4E8EA;
-  width: 15%;
+  // background: yellow;
+  width: 230px;
+  min-height: 650px;
   border-right: 1px solid #b3b3b3;
 
 }
@@ -198,7 +201,7 @@ div.new-btn > a:hover {
   float: left;
   background: white;
   display: block;
-  width: 25%;
+  width: 350px;
   border-top: 1px solid #b3b3b3;
   border-bottom: 1px solid #b3b3b3;
 }
@@ -207,7 +210,7 @@ div.new-btn > a:hover {
   float: left;
   background: #F0F0F0;
   display: block;
-  width: 60%;
+  width: 830px;
   border: 1px solid #b3b3b3;
 }
 
@@ -242,7 +245,7 @@ div.new-btn > a:hover {
   padding: 0px;
   height: 34px;
   vertical-align: baseline;
-  display: block;
+  display: inline-block;
   color: #555e64;
   cursor: pointer;
   border: none;
@@ -286,10 +289,12 @@ ul.notebooks-list-group {
   display: block;
   font-family: sans-serif;
   font-size: 16px;
-  height: 560px;
+  height: 250px;
   padding-bottom: 16px;
-  width: 205px;
+  width: 100%;
   margin-left: 0px;
+  // word-wrap: break-word;
+  overflow: auto;
 }
 
 ul.notebooks-list-group > li {
@@ -299,12 +304,25 @@ ul.notebooks-list-group > li {
   padding-left: 0px;
   font-size: 12px;
   height: 25px;
-  // display: inline-block;
+  display: inline-block;
   vertical-align: top;
   padding-left: 15px;
   margin-bottom: 5px;
   padding-right: 0px;
-  padding-top: 5px;
+  // padding-top: 5px;
+  height: 25px;
+  width: 100%;
+  line-height: 25px;
+}
+
+.notebooks-header-right {
+  // display: none;
+}
+
+.notebooks-header-right:hover {
+  display: block;
+  padding-top: 0px;
+  margin: 0px;
 }
 
 ul.notebooks-list-group > li:hover {

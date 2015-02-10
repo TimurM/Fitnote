@@ -1,16 +1,18 @@
 Fitnote.Views.NotebooksIndex = Backbone.View.extend({
   template: JST['notebooks/index'],
+  className: "sidebar-notebooks-item",
 
   initialize: function() {
-    this.listenTo(this.collection, "sync reset add remove", this.render)
+    this.listenTo(this.collection, "sync reset add remove", this.render);
   },
+
   events: {
-    "click .new-notebook": "newNotebook"
+    "click .new-notebook": "newNotebook",
+    "click .delete-notebook": "removeNotebook"
   },
 
   newNotebook: function(event){
     event.preventDefault();
-    // var modal = JST["notebooks/form"]();
 
     var newNoteBook = new Fitnote.Models.Notebook();
     var $form = new Fitnote.Views.NotebookForm({
@@ -18,7 +20,15 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
       collection: Fitnote.notebooks
     });
     this.$el.append($form.render().$el);
-    // this.$('#myModal').modal();
+  },
+
+  removeNotebook: function(event){
+    event.preventDefault();
+
+    var notebookId = $(event.currentTarget).attr("data-id");
+
+    var notebook = this.collection.get(notebookId);
+    notebook.destroy();
   },
 
   render: function() {

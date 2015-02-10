@@ -31,8 +31,9 @@ module Api
 
     def update
       @tag = Tag.find(params[:id])
+      @tag.note_ids += [params[:note_id]]
 
-      if tag.update(tag_params)
+      if @tag.save
         render json: @tag
       else
         render json: @tag.errors.full_messages, status: :unprocessable_entity

@@ -2,13 +2,16 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   template: JST['notes/top_header'],
 
   initialize: function() {
+    Fitnote.tags.fetch();
     this.collection = this.model.tags();
-    this.listenTo(this.model, "sync reset add", this.render);
+    this.listenTo(Fitnote.tags, "sync reset add remove", this.render);
+    this.listenTo(this.model, "sync reset add remove", this.render);
     this.listenTo(this.collection, 'sync reset add remove', this.render);
   },
 
   events: {
-    "blur .new-tag > input" : "addTag"
+    "blur .new-tag > input" : "addTag",
+    "click .remove-tag": "removeTag"
   },
 
   render: function() {
@@ -22,8 +25,8 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   addTag: function(event) {
     var formInput = $(event.target).serializeJSON();
 
-    var existing_tags = this.collection.where(formInput);
-    debugger
+    var existing_tags = Fitnote.tags.where(formInput);
+
     var that = this;
     if(existing_tags.length === 0) {
       var newTag = new Fitnote.Models.Tag(formInput);
@@ -33,12 +36,18 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
         },
       });
     }
-    // else {
-    //   existing_tags.save({note_id: this.model.id}, {
-    //     success: function() {
-    //       that.collection.add(existing_tags);
-    //     },
-    //   });
-    // }
+    else {
+      existing_tags[0].save({note_id: this.model.id}, {
+          success: function() {
+            that.collection.add(existing_tags[0]);
+          },
+      });
+    }
+  },
+
+  removeTag: function(event) {
+    var tagId = $(event.target).attr('data-id');
+    var tag = this.collection.get(tagId);
+    tag.destroy();
   }
 })
