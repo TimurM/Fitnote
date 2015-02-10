@@ -3,21 +3,27 @@ module Api
 
     def index
       @tags = current_user.tags.order('name')
-      render :index
+      render json: @tags
     end
 
     def show
       @tag = Tag.find(params[:id])
       @notes = @tag.notes.order('updated_at DESC')
-      render :show
+      render json: @tags
     end
 
     def create
-      @tag = Tag.new(tag_params)
-      @tag.user_id = current_user.id
+      # @tag = Tag.find(params[:name])
+      #
+      # if @tag
+      #   @tag += [params[:note_id]]
+      # else
+        @tag = current_user.tags.new(tag_params)
+        @tag.note_ids += [params[:note_id]]
+      # end
 
       if @tag.save
-        render :show
+        render json: @tag
       else
         render json: @tag.errors.full_messages, status: :unprocessable_entity
       end
@@ -27,7 +33,7 @@ module Api
       @tag = Tag.find(params[:id])
 
       if tag.update(tag_params)
-        render :show
+        render json: @tag
       else
         render json: @tag.errors.full_messages, status: :unprocessable_entity
       end

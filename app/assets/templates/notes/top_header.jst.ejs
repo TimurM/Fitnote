@@ -1,1 +1,12 @@
-<h1>Inside Top Header</h1>
+<div class="new-tag" >
+    <input type="text" name="name" placeholder="add tag"></input>
+</div>
+
+<ul class="tags group">
+    <% tags.each(function(tag) { %>
+    <li class="tag group">
+        <h2><%= tag.escape('name') %></h2>
+        <button class="remove-tag" data-id="<%= tag.id %>">x</button>
+    </li>
+    <% }) %>
+</ul>

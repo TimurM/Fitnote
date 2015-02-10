@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
 
-  validates :name, :user_id, presence: true
+  validates :name, :owner, presence: true
   validates :name, uniqueness: { scope: :user_id }
 
   belongs_to(
@@ -10,13 +10,7 @@ class Tag < ActiveRecord::Base
   primary_key: :id
   )
 
-  has_many(
-  :taggings,
-  class_name: "Tagging",
-  foreign_key: :tag_id,
-  primary_key: :id,
-  dependent: :destroy
-  )
+  has_many :taggings, dependent: :destroy, inverse_of: :tag
 
   has_many(
   :notes,

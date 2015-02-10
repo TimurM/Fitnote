@@ -16,7 +16,7 @@ module Api
         user_id: current_user.id
       )
 
-      @tagging = Tagging.create(note_id: @note.id, tag_id: @tag.id)
+      @tagging = Tagging.new(note_id: @note.id, tag_id: @tag.id)
 
       if @tagging.save
         render :index

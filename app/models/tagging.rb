@@ -1,21 +1,10 @@
 class Tagging < ActiveRecord::Base
-  
-  validates :note_id, :tag_id, presence: true
-  validates :note_id, uniqueness: { scope: :tag_id }
 
-  belongs_to(
-    :note,
-    class_name: "Note",
-    foreign_key: :note_id,
-    primary_key: :id
-  )
+  validates :note, :tag, presence: true
+  validates :note, uniqueness: { scope: :tag }
 
-  belongs_to(
-    :tag,
-    class_name: "Tag",
-    foreign_key: :tag_id,
-    primary_key: :id
-  )
+  belongs_to :note, inverse_of: :taggings
+  belongs_to :tag, inverse_of: :taggings
 
   has_one(
     :owner,
