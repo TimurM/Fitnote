@@ -3,14 +3,15 @@ window.Fitnote = {
   Collections: {},
   Views: {},
   Routers: {},
-  Utils: {}, 
+  Utils: {},
   initialize: function() {
-    new Fitnote.Routers.NotebookRouter();
+    Fitnote.router = new Fitnote.Routers.NotebookRouter();
 
+    Fitnote.notes = new Fitnote.Collections.Notes();
+
+    var $header = $("#search-bar-header");
+    var searchBarView = new Fitnote.Views.SearchBar();
+    $header.append(searchBarView.render().$el);
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Fitnote.initialize();
-});

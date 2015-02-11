@@ -6,6 +6,10 @@ Fitnote.Views.SearchBar = Backbone.View.extend({
     "submit form" : 'search'
   },
 
+  initialize: function() {
+
+  },
+
   render: function() {
     var content = this.template();
     this.$el.html(content);
@@ -13,7 +17,18 @@ Fitnote.Views.SearchBar = Backbone.View.extend({
   },
 
   search: function(event) {
-    var query = $(event.currentTarget).attr('name')
-    debugger;
+    event.preventDefault;
+    var keyword = $(event.currentTarget).find('input').val();
+
+    $.ajax({
+      url: 'api/notes.json',
+      type: 'Get',
+      data: {
+        query: keyword
+      }, success: function(notes) {
+        Fitnote.router.renderNotesIndex(notes);
+      }
+    });
+
   }
 })

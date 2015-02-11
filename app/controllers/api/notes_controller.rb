@@ -2,13 +2,12 @@ module Api
   class NotesController < ApiController
 
     def index
-      @notes = current_user.notes
+      @keyword = params[:query]
+      @tag = current_user.tags.find_by(name: @keyword)
 
-      #if query string
-        #first try search by tag
-        #otherwise search by text/title
-      # else
-        #current_user.notes
+      @notes = @tag.try(:notes) ||
+      (current_user.notes.where('title LIKE ?', "%#{@keyword}%").all || current_user.notes.where('body LIKE ?', "%#{@keyword}%").all) ||
+      current_user.notes
     end
 
     def show

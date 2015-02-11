@@ -6,7 +6,7 @@ Fitnote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    this.collection = this.model.notes();
+    this.collection = this.searchResults || this.model.notes();
     this.listenTo(this.model, 'add change:title sync reset', this.render);
     this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
   },
@@ -21,7 +21,7 @@ Fitnote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
 
   addNote: function(note) {
-    var view = new Fitnote.Views.NoteIndex({
+    var view = new Fitnote.Views.NoteIndexItem({
       model: note
     });
     this.addSubview('#notes-summary', view);

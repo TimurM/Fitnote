@@ -1,16 +1,40 @@
-Fitnote.Views.NoteIndex = Backbone.View.extend({
-  template: JST['notes/show'],
+Fitnote.Views.NotesIndex = Backbone.CompositeView.extend({
+
+  template: JST["static_pages/search_bar"],
+
+  events: {
+    "click .note-heading" : 'renderNote'
+  },
 
   initialize: function() {
-
+    // this.listenTo(this.model, 'add change:title sync reset', this.render);
+    // this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
   },
 
   render: function() {
-    var content = this.template({
-      note: this.model
-    });
+    var content = this.template();
     this.$el.html(content);
+    this.renderNotes();
     return this;
+  },
+
+  addNote: function(note) {
+    var view = new Fitnote.Views.NoteIndexItem({
+      model: note
+    });
+    this.addSubview('#notes-summary', view);
+  },
+
+  renderNotes: function() {
+    // var that = this;
+    this.collection.each(this.addNote.bind(this));
+  },
+
+  renderNote: function(event) {
+    var $clickedNote = $(event.currentTarget);
+    var noteId = $clickedNote.attr('data-note-id');
+
+    Backbone.history.navigate("/notebooks/" + this.model.id + "/notes/" + noteId, {trigger: true});
   }
 
 })
