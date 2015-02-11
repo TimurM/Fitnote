@@ -1,8 +1,14 @@
 module Api
   class NotesController < ApiController
-    
+
     def index
       @notes = current_user.notes
+
+      #if query string
+        #first try search by tag
+        #otherwise search by text/title
+      # else
+        #current_user.notes
     end
 
     def show
