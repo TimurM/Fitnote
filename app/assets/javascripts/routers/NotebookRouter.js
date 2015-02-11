@@ -1,40 +1,78 @@
 Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
-
   initialize: function(callback) {
-    Fitnote.notebooks = new Fitnote.Collections.Notebooks();
     this.currentNotebook = {};
     this._currentView = {};
-    this.$sidebar = $('.sidebar-sections'),
-    this.$rootEl = $('#note-list-items'),
-    this.$notedetail = $('#note-show-detail')
+    this.$sidebar = $('.sidebar-sections');
+    this.$rootEl = $('#note-list-items');
+    this.$notedetail = $('#note-show-detail');
+    this.index();
+    // this.ensureViews();
   },
 
   routes: {
     "" : "index",
     '1' : 'landingPage',
+    // "notes/:id": 'noteShow',
     "notebooks/:id/notes/:note_id": 'noteShow',
     "notebooks/:id" : 'notebookShow',
-    "notes/new" : 'newNote'
+    "notes/new" : 'newNote',
+    "search/:keyword": "search"
   },
 
   // added a callback in a case  user tries to navigate directly to a note
   index: function(notebook_id, callback) {
     Fitnote.notebooks.fetch({
-      success: function() {
-        if (callback) {
-          callback();
-        } else {
-          var firstNotebook = Fitnote.notebooks.models[0];
-          Backbone.history.navigate("/notebooks/" + firstNotebook.id, {trigger: true});
+      // success: function() {
+      //   if (callback) {
+      //     callback();
+      //   } else {
+      //     var firstNotebook = Fitnote.notebooks.models[0];
+      //     Backbone.history.navigate("/notebooks/" + firstNotebook.id, {trigger: true});
+      //   }
+      // },
+      success: function () {
+        if (!this._currentView[".sidebar-sections"]) {
+          var indexView = new Fitnote.Views.Index({
+            collection: Fitnote.notebooks
+          });
+          this._notebooks = Fitnote.notebooks;
+          this._swapView(indexView, ".sidebar-sections");
+          this.ensureNotebookShow();
         }
-      },
+      }.bind(this)
     });
 
-    var indexView = new Fitnote.Views.Index({
-      collection: Fitnote.notebooks
-    });
-    this._notebooks = Fitnote.notebooks;
-    this.$sidebar.html(indexView.render().$el);
+
+    // this.$sidebar.html(indexView.render().$el);
+  },
+
+  ensureNotebookShow: function() {
+    if (!this._currentView["#note-list-items"]) {
+      this._notebook = this._notebooks.first();
+      this._notebook.fetch({
+        success: this.ensureNoteShow.bind(this)
+      });
+      if(this._notebook){
+          var NotesIndex = new Fitnote.Views.NotebookShow({
+            model: this._notebook
+          });
+        this._swapView(NotesIndex, "#note-list-items");
+        // this.ensureNoteShow();
+      }
+    }
+  },
+
+  ensureNoteShow: function() {
+    if(!this._currentView["#note-show-detail"]) {
+      // debugger
+      this._note = this._notebook.notes().first();
+      if(this._note) {
+          var noteDetailShow = new Fitnote.Views.NoteDetails({
+            model: this._note
+          });
+        this._swapView(noteDetailShow, '#note-show-detail');
+      }
+    }
   },
 
   notebookShow: function(id, note_id, callback) {
@@ -101,13 +139,30 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     this._swapView(formView, '#note-show-detail');
   },
 
-  renderNotesIndex: function (notes) {
-    var searchResults = new Fitnote.Collections.Notes(notes);
+  // renderNotesIndex: function (notes) {
+  //   var searchResults = new Fitnote.Collections.Notes(notes);
+  //   var searchNotesIndex = new Fitnote.Views.NotesIndex({
+  //     collection: searchResults
+  //   });
+  //   this._swapView(searchNotesIndex, '#note-list-items');
+  // },
+
+  search: function (keyword) {
+    var searchResults = new Fitnote.Collections.Notes();
+    searchResults.fetch({
+      data: {
+        query: keyword
+      },
+      success: function () {
+        // select first note from results collection
+      }
+    });
     var searchNotesIndex = new Fitnote.Views.NotesIndex({
       collection: searchResults
-      });
+    });
     this._swapView(searchNotesIndex, '#note-list-items');
   },
+
 
   _swapView: function (view, element) {
     this._currentView[element] && this._currentView[element].remove();

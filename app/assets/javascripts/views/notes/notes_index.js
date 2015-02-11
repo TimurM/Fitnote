@@ -1,12 +1,14 @@
 Fitnote.Views.NotesIndex = Backbone.CompositeView.extend({
 
-  template: JST["static_pages/search_bar"],
+  template: JST["static_pages/search_results"],
 
   events: {
     "click .note-heading" : 'renderNote'
   },
 
   initialize: function() {
+    this.collection.each(this.addNote.bind(this));
+    this.listenTo(this.collection, 'add', this.addNote);
     // this.listenTo(this.model, 'add change:title sync reset', this.render);
     // this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
   },

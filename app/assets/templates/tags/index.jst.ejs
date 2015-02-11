@@ -21,9 +21,8 @@
   <% tags.each(function(tag) { %>
     <li>
       <i class='glyphicon glyphicon-book'></i>
-      <a href="#/tags/<%= tag.id %>">
-        <%= tag.escape('name') %>
-      </a>
+      <a href="#" class="tag-click" name="<%= tag.escape('name')%>" data-id="<%= tag.id %>">
+      <%= tag.escape('name') %></a>
 
       <div class="notebooks-header-right">
         <div class="dropdown">

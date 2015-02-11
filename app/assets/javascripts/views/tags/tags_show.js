@@ -21,9 +21,9 @@ Fitnote.Views.TagsShow = Backbone.View.extend({
   },
 
   renderNote: function(event) {
+    debugger
     var $clickedNote = $(event.currentTarget);
     var noteId = $clickedNote.attr('data-note-id');
-
     Backbone.history.navigate("/notebooks/" + this.model.id + "/notes/" + noteId, {trigger: true});
   }
 })

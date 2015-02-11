@@ -5,13 +5,15 @@ window.Fitnote = {
   Routers: {},
   Utils: {},
   initialize: function() {
-    Fitnote.router = new Fitnote.Routers.NotebookRouter();
 
+    Fitnote.notebooks = new Fitnote.Collections.Notebooks();
     Fitnote.notes = new Fitnote.Collections.Notes();
 
     var $header = $("#search-bar-header");
     var searchBarView = new Fitnote.Views.SearchBar();
     $header.append(searchBarView.render().$el);
+    
+    Fitnote.router = new Fitnote.Routers.NotebookRouter();
     Backbone.history.start();
   }
 };

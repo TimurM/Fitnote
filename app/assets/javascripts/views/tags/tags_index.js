@@ -8,7 +8,8 @@ Fitnote.Views.TagsIndex = Backbone.View.extend({
 
   events: {
     "click .new-tags": "newTag",
-    "click .delete-tag": "removeTag"
+    "click .delete-tag": "removeTag",
+    "click .tag-click" : "renderNotes"
   },
 
   render: function() {
@@ -37,6 +38,13 @@ Fitnote.Views.TagsIndex = Backbone.View.extend({
     var tagId = $(event.currentTarget).attr('data-id')
     var tag = this.collection.get(tagId);
     tag.destroy();
+  },
+
+  renderNotes: function(event) {
+    event.preventDefault();
+    var name = $(event.currentTarget).attr('name')
+
+    Backbone.history.navigate('/search/' + name, { trigger: true });
   }
 
 })
