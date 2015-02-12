@@ -1,6 +1,6 @@
 class Notebook < ActiveRecord::Base
-  before_destroy :ensure_not_last_notebook
   validates :name, :owner_id, presence: true
+  before_save :ensure_note
 
   has_many :notes
 
@@ -18,10 +18,10 @@ class Notebook < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy
   )
-  # def ensure_not_last_notebook
-  #   if owner.notebooks.reload.length == 1
-  #     return false
-  #   end
-  # end
 
+  def ensure_note
+    if self.notes.empty?
+      self.notes.new(:title => "Untitled", :body => "Start typing...")
+    end
+  end
 end

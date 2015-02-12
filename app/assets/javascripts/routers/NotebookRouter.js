@@ -49,6 +49,8 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
   ensureNotebookShow: function() {
     if (!this._currentView["#note-list-items"]) {
       this._notebook = this._notebooks.first();
+      this.currentNotebook = this._notebook;
+
       this._notebook.fetch({
         success: this.ensureNoteShow.bind(this)
       });
@@ -122,11 +124,11 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
           model: newNote,
           collection: that.currentNotebook.notes()
         });
+        that._swapView(formView, '#note-show-detail');
       }
     })
 
 
-    this._swapView(formView, '#note-show-detail');
   },
 
   search: function (keyword) {

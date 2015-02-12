@@ -2,37 +2,44 @@
   <div id="sidebar"></div>
   <div id="main"></div>
 </div> -->
+<div class="container-fluid group">
 
-<header class="header-view group">Fitnote</header>
-  <section class='subheader group'>
-    <img class="logo-image" src="https://www.evernote.com/redesign/global/img/elephant.png"/>
-    <h1 class="logo-text">Fitnote</h1>
-    <div class="btn btn-default new-btn"><a href="#/notes/new">+ New Note</a></div>
-    <div id="search-bar-header"></div>
-  </section>
-<div id="content" class="group">
-
-  <section id="sidebar">
-    <div class="sidebar-sections">
-      <!-- <div class="notebooks" id="sidebar-notebooks">
+  <header class="header-view group"></header>
+    <div class='container-fluid'>
+      <div class='subheader group row'>
+        <div class='col-md-2'>
+          <img class="logo-image" src="https://www.evernote.com/redesign/global/img/elephant.png"/>
+          <h1 class="logo-text">Fitnote</h1>
+        </div>
+        <div class='col-md-3'>
+          <div id="search-bar-header"></div>
+        </div>
+        <div class='col-md-1'>
+          <div class="btn btn-default new-btn"><a href="#/notes/new">+ New Note</a></div>
+        </div>
       </div>
-      <div class="sidebar tags" id="sidebar-tags">
-      </div> -->
     </div>
-  </section>
 
-  <section id="notes-list">
-    <div id="note-list-items">
+    <div id="content" class="container-fluid group">
+      <div class='row'>
+        <div id="sidebar" class="col-md-2 ">
+          <div class="sidebar-sections">
+          </div>
+        </div>
 
+        <div id="notes-list" class="col-md-3 nopadding">
+          <div id="note-list-items">
+
+          </div>
+        </div>
+
+        <div id="note-detail" class="col-md-7">
+          <div class="note-content" id="note-show-detail">
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <section id="note-detail">
-    <div class="note-content" id="note-show-detail">
-    </div>
-  </section>
 </div>
-
 <script charset="utf-8">
   $(document).ready(function(){
     Fitnote.initialize();

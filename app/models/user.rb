@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def ensure_notebook
     if self.notebooks.empty?
-      self.notebooks.build(:name => "#{username}'s notes")
+      self.notebooks.build(:name => "First Notebook")
     end
   end
 

@@ -16,9 +16,9 @@
  @import "bootstrap";
 
  body {
-   background: url('background.jpg');
-   display: compact;
-   background-size: 1440px 800px;
+  //  background: url('background.jpg');
+  //  display: compact;
+  //  background-size: 1440px 800px;
  }
 
 .group:after {
@@ -32,6 +32,11 @@
   min-height: 20px;
   line-height: 0px;
   height: 30px;
+}
+
+.container-fluid {
+  margin: 0px;
+  padding: 0px;
 }
 
 #sign-in-form {
@@ -147,7 +152,7 @@
   display: block;
   float: left;
   font-size: 22px;
-  padding-top: 0 px;
+  padding-top: 0px;
   padding-left: 0px;
   color: #38AA26;
   margin-top: 15px;
@@ -164,7 +169,7 @@ div.new-btn {
   width: 100px;
   height: 30px;
   cursor: default;
-  margin-left: 100px;
+  margin-left: 0px;
   margin-top: 10px;
   display: inline-block;
   border-radius: 3px;
@@ -179,27 +184,52 @@ div.new-btn > a:hover {
 }
 
 #search-bar-header {
-  float: left;
+  // float: left;
+  margin-top: 10px;
   height: 30px;
 }
 
-// form.search {
-//   height: 30px;
-//   width: 200px;
-// }
-//
-// .search > input {
-//   float: left;
-// }
-//
-// .search .submit {
-//   float: left;
-// }
+.search-bar > .input-group {
+  height: 30px;
+  width: 350px;
+  // width: 100%;
+  padding-bottom: 0px;
+}
+
+.search-bar > div > .text-input {
+  float: left;
+  width: 85%;
+  height: 30px;
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
+
+.search-bar > div > .submit {
+  float: left;
+  background: #F0F0F0;
+  font-weight: bold;
+  font-size: 13px;
+  width: 15%;
+  padding-left: 1px;
+  padding-right: 2px;
+  height: 30px;
+  border-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
 
 #content {
   position: relative;
   width: 100%;
   // background: yellow;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 #sidebar {
@@ -208,9 +238,10 @@ div.new-btn > a:hover {
   position: relative;
   overflow: auto;
   background: #E4E8EA;
+  padding-right: 0px;
   // background: yellow;
-  width: 230px;
-  min-height: 650px;
+  // width: 100%;
+  min-height: 100%;
   border-right: 1px solid #b3b3b3;
 
 }
@@ -219,7 +250,7 @@ div.new-btn > a:hover {
   float: left;
   background: white;
   display: block;
-  width: 350px;
+  // width: 100%;
   border-top: 1px solid #b3b3b3;
   border-bottom: 1px solid #b3b3b3;
 }
@@ -228,8 +259,10 @@ div.new-btn > a:hover {
   float: left;
   background: #F0F0F0;
   display: block;
-  width: 830px;
+  // width: 100%;
   border: 1px solid #b3b3b3;
+  padding-left: 0px;
+  padding-right: 20px;
 }
 
 .sidebar-notebooks-item {
@@ -307,7 +340,7 @@ ul.notebooks-list-group {
   display: block;
   font-family: sans-serif;
   font-size: 16px;
-  height: 250px;
+  height: 300px;
   padding-bottom: 16px;
   width: 100%;
   margin-left: 0px;

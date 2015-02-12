@@ -13,10 +13,10 @@
   <div class="note-form-header-left">
     <ul class="dates">
       <li>
-        Created: <%= moment(note.escape("created_at")).format('MMM D, YYYY') %>
+        Created: <%= moment(Date.now()).format('MMM D, YYYY') %>
       </li>
       <li>
-        Modified: <%= moment(note.escape("updated_at")).format('MMM D, YYYY') %>
+        Modified: <%= moment(Date.now()).format('MMM D, YYYY') %>
       </li>
     </ul>
   </div>
@@ -26,10 +26,10 @@
 <div class="note-form-content">
   <form class="note-title">
   <div class="form-group">
-    <input id='note-title' type="text" name="title" value="<%= note.get("title") %>" class="form-control">
+    <input id='note-title' type="text" name="title" value="Untitled" class="form-control">
 
-    <textarea class="form-control" name="body" id="body" >"<%= note.get('body') %>"</textarea>
+    <textarea class="form-control" name="body" id="body" ></textarea>
   </div>
-    <input type="submit" value="update">
+    <input type="submit" value="Create">
   </form>
 </div>

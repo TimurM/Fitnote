@@ -41,10 +41,13 @@ module Api
     def destroy
       @notebook = Notebook.find(params[:id])
 
-      if @notebook.destroy
-        redirect_to api_notebooks_url
-      else
-        render json: @notebook.errors.full_messages, status: :unprocessable_entity
+      if current_user.notebooks.count >= 1
+
+          if @notebook.destroy
+            redirect_to api_notebooks_url
+          else
+            render json: @notebook.errors.full_messages, status: :unprocessable_entity
+          end
       end
     end
 
