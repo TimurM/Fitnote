@@ -13,10 +13,9 @@ module Api
     def show
       @note = Note.find(params[:id])
     end
-
-    def new
-
-    end
+    # 
+    # def new
+    # end
 
     def create
       @note = Note.new(note_params)

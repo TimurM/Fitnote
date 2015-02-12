@@ -36,7 +36,7 @@ Fitnote.Views.NotesIndex = Backbone.CompositeView.extend({
     var $clickedNote = $(event.currentTarget);
     var noteId = $clickedNote.attr('data-note-id');
 
-    Backbone.history.navigate("/notebooks/" + this.model.id + "/notes/" + noteId, {trigger: true});
+    Backbone.history.navigate("/notes/" + noteId, {trigger: true});
   }
 
 })

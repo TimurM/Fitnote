@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize :ensure_session_token
+  before_save :ensure_notebook
 
   has_many(
     :notebooks,
@@ -27,6 +28,12 @@ class User < ActiveRecord::Base
     through: :notebooks,
     source: :notes
   )
+
+  def ensure_notebook
+    if self.notebooks.empty?
+      self.notebooks.build(:name => "#{username}'s notes")
+    end
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

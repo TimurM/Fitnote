@@ -22,8 +22,7 @@ Fitnote.Views.NoteForm = Backbone.View.extend({
       this.model.save({}, {
         success: function() {
           that.collection.add(that.model, { merge: true });
-          Backbone.history.navigate("/notebooks/" + that.model.get('notebook_id') +
-          "/notes/" + that.model.id, {trigger: true });
+          Backbone.history.navigate("/notes/" + that.model.id, {trigger: true })
         },
         error: function (model, response) {
           debugger;

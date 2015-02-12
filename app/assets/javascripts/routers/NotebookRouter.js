@@ -12,10 +12,10 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
   routes: {
     "" : "index",
     '1' : 'landingPage',
-    // "notes/:id": 'noteShow',
-    "notebooks/:id/notes/:note_id": 'noteShow',
-    "notebooks/:id" : 'notebookShow',
     "notes/new" : 'newNote',
+    "notes/:id": 'noteShow',
+    // "notebooks/:id/notes/:note_id": 'noteShow',
+    "notebooks/:id" : 'notebookShow',
     "search/:keyword": "search"
   },
 
@@ -62,99 +62,82 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     }
   },
 
-  ensureNoteShow: function() {
-    if(!this._currentView["#note-show-detail"]) {
-      // debugger
-      this._note = this._notebook.notes().first();
+  ensureNoteShow: function(notebook) {
+
+      if(notebook.models !== undefined){
+        this._note = notebook.first();
+      } else if(notebook !== undefined){
+        this._note = notebook.notes().first();
+      }else {
+
+        if(!this._currentView["#note-show-detail"]) {
+          this._note = this._notebook.notes().first();
+        }
+      }
       if(this._note) {
-          var noteDetailShow = new Fitnote.Views.NoteDetails({
-            model: this._note
-          });
+        var noteDetailShow = new Fitnote.Views.NoteDetails({
+          model: this._note
+        });
         this._swapView(noteDetailShow, '#note-show-detail');
       }
-    }
   },
 
-  notebookShow: function(id, note_id, callback) {
-    if (!this._notebooks) {
-      this.index(id, this.notebookShow.bind(this, id, note_id, callback))
-    } else {
-        var notebook = Fitnote.notebooks.getOrFetch(id);
-        this.currentNotebook = notebook,
+  notebookShow: function(id) {
+        this._notebook = Fitnote.notebooks.getOrFetch(id);
+        this.currentNotebook = this._notebook,
           that = this;
 
-        notebook.fetch({
+        this._notebook.fetch({
           success: function() {
-            if (callback) {
-              callback();
-            } else {
-              var firstNote = notebook.notes().first();
-              that.renderNoteDiv(firstNote, notebook);
-            }
+            that.ensureNoteShow(that._notebook);
           },
         });
 
         var showView = new Fitnote.Views.NotebookShow({
-          model: notebook
+          model: this._notebook
         });
+
         this._swapView(showView, '#note-list-items');
-    }
   },
 
-  renderNoteDiv: function(note, notebook) {
-    if(note){
-      Backbone.history.navigate("/notebooks/" + notebook.id + "/notes/" + note.id, {
-        trigger: true
-      });
-    } else {
-      that.newNote();
-    }
-  },
+  noteShow: function(id) {
+        var note = Fitnote.notes.getOrFetch(id);
 
-  noteShow: function(id, note_id) {
-    if (!this._notebooks) {
-        this.notebookShow(id, note_id, this.noteShow.bind(this, id, note_id))
-    } else {
-        var notebook = Fitnote.notebooks.getOrFetch(id);
-        var note = notebook.notes().getOrFetch(note_id);
-
-        // var noteDetailShow = new Fitnote.Views.NoteShow({
-        //   model: note
-        // });
         var noteDetailShow = new Fitnote.Views.NoteDetails({
           model: note
         });
+
         this._swapView(noteDetailShow, '#note-show-detail');
-    }
   },
 
   newNote: function() {
     var newNote = new Fitnote.Models.Note();
-    newNote.set({notebook_id: this.currentNotebook.id});
 
-    var formView = new Fitnote.Views.NoteForm({
-      model: newNote,
-      collection: this.currentNotebook.notes()
-    });
+    var that = this;
+    this.currentNotebook.fetch({
+      success: function() {
+        newNote.set({notebook_id: that.currentNotebook.id});
+
+        var formView = new Fitnote.Views.NoteForm({
+          model: newNote,
+          collection: that.currentNotebook.notes()
+        });
+      }
+    })
+
+
     this._swapView(formView, '#note-show-detail');
   },
 
-  // renderNotesIndex: function (notes) {
-  //   var searchResults = new Fitnote.Collections.Notes(notes);
-  //   var searchNotesIndex = new Fitnote.Views.NotesIndex({
-  //     collection: searchResults
-  //   });
-  //   this._swapView(searchNotesIndex, '#note-list-items');
-  // },
-
   search: function (keyword) {
     var searchResults = new Fitnote.Collections.Notes();
+    var that = this;
     searchResults.fetch({
       data: {
         query: keyword
       },
       success: function () {
-        // select first note from results collection
+        that.ensureNoteShow(searchResults);
       }
     });
     var searchNotesIndex = new Fitnote.Views.NotesIndex({
