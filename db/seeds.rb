@@ -2,20 +2,12 @@ charlie = User.find_or_create_by([
   {email: "charlie@gmail.com", username: "Charlie", password_digest: "$2a$10$Ah4nfSE2tBKByDknITCKuO1D4PYW8JM7qtA/kOhYvoHgfV.Qhrg7O", session_token: "Qw3Eh36QSqa7NDwSi5DaIQ"}
   ])
 
-
-Notebook.create!([
-  {name: "First Notebook", owner_id: charlie.id },
-  {name: "Leg Exercises", owner_id: charlie.id },
-  {name: "Chest Exercises", owner_id: charlie.id }
-])
-
 notebook10 = Notebook.find_or_create_by(name: "Leg Exercises", owner_id: charlie.id )
 notebook11 = Notebook.find_or_create_by(name: "Chest Exercises", owner_id: charlie.id )
 notebook9 = Notebook.find_or_create_by(name: "First Notebook", owner_id: charlie.id)
 
 
 note22 = Note.find_or_create_by(notebook_id: notebook10.id, title: "Bench Jump Guide", body: "1. Begin with a box or bench 1-2 feet in front of you. Stand with your feet shoulder width apart. This will be your starting position.\r\n\r\n2. Perform a short squat in preparation for the jump; swing your arms behind you.\r\n\r\n3. Rebound out of this position, extending through the hips, knees, and ankles to jump as high as possible. Swing your arms forward and up.\r\n\r\n4. Jump over the bench, landing with the knees bent, absorbing the impact through the legs.\r\n\r\n5. Turn around and face the opposite direction, then jump back over the bench.")
-
 note18 = Note.find_or_create_by(notebook_id: notebook10.id, title: "Barbell Full Squat Guide", body: "1. This exercise is best performed inside a squat rack for safety purposes. To begin, first set the bar on a rack just above shoulder level. Once the correct height is chosen and the bar is loaded, step under the bar and place the back of your shoulders (slightly below the neck) across it.\r\n\r\n2. Hold on to the bar using both arms at each side and lift it off the rack by first pushing with your legs and at the same time straightening your torso.\r\n\r\n3. Step away from the rack and position your legs using a shoulder-width medium stance with the toes slightly pointed out. Keep your head up at all times and maintain a straight back. This will be your starting position.\r\n\r\n4. Begin to slowly lower the bar by bending the knees and sitting back with your hips as you maintain a straight posture with the head up. Continue down until your hamstrings are on your calves. Inhale as you perform this portion of the movement.\r\n\r\n5. Begin to raise the bar as you exhale by pushing the floor with the heel or middle of your foot as you straighten the legs and extend the hips to go back to the starting position.\r\nRepeat for the recommended amount of repetitions.\r\n\r\n6.This type of squat allows a greater range of motion, and allows the trunk to maintain a more vertical position than other types of squats, due to foot position and the higher bar position.")
 note19 = Note.find_or_create_by(notebook_id: notebook10.id, title: "Alternate Leg Diagonal Bound Guide", body: "1. Assume a comfortable stance with one foot slightly in front of the other.\r\n\r\n2. Begin by pushing off with the front leg, driving the opposite knee forward and as high as possible before landing. Attempt to cover as much distance to each side with each bound.\r\n\r\n3. It may help to use a line on the ground to guage distance from side to side.\r\n\r\n4. Repeat the sequence with the other leg.")
 note21 = Note.find_or_create_by(notebook_id: notebook10.id, title: "Barbell Step Ups Guide", body: "1. Stand up straight while holding a barbell placed on the back of your shoulders (slightly below the neck) and stand upright behind an elevated platform (such as the one used for spotting behind a flat bench). This is your starting position.\r\n\r\n2. Place the right foot on the elevated platform. Step on the platform by extending the hip and the knee of your right leg. Use the heel mainly to lift the rest of your body up and place the foot of the left leg on the platform as well. Breathe out as you execute the force required to come up.\r\n\r\n3. Step down with the left leg by flexing the hip and knee of the right leg as you inhale. Return to the original standing position by placing the right foot of to next to the left foot on the initial position.\r\n\r\n4. Repeat with the right leg for the recommended amount of repetitions and then perform with the left leg.")
@@ -32,55 +24,50 @@ note31 = Note.find_or_create_by(notebook_id: notebook9.id, title: "Chain Press G
 note33 = Note.find_or_create_by(notebook_id: notebook9.id, title: "Barbell Incline Bench Press Guide", body: "1. Lie back on an incline bench. Using a medium-width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.\r\n\r\n2. As you breathe in, come down slowly until you feel the bar on you upper chest.\r\n\r\n3. After a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms in the contracted position, squeeze your chest, hold for a second and then start coming down slowly again. Tip: it should take at least twice as long to go down than to come up.\r\n\r\n4. Repeat the movement for the prescribed amount of repetitions.\r\n\r\n5. When you are done, place the bar back in the rack.")
 
 
-Tag.create!([
-  {name: "squat", user_id: charlie.id},
-  {name: "barbell squat", user_id: charlie.id},
-  {name: "Legs", user_id: charlie.id},
-  {name: "Diagonal Leg workout", user_id: charlie.id},
-  {name: "Step ups", user_id: charlie.id},
-  {name: "barbell", user_id: charlie.id},
-  {name: "bench jump", user_id: charlie.id},
-  {name: "chest", user_id: charlie.id},
-  {name: "tricep", user_id: charlie.id},
-  {name: "bench", user_id: charlie.id},
-  {name: "butterfly", user_id: charlie.id},
-  {name: "chain press", user_id: charlie.id},
-  {name: "Cable cross", user_id: charlie.id}
-])
 
+tag9 = Tag.find_or_create_by(name: "squat", user_id: charlie.id)
+tag10 = Tag.find_or_create_by(name: "barbell squat", user_id: charlie.id)
+tag11 = Tag.find_or_create_by(name: "Legs", user_id: charlie.id)
+tag12 = Tag.find_or_create_by(name: "Diagonal Leg workout", user_id: charlie.id)
+tag14 = Tag.find_or_create_by(name: "Step ups", user_id: charlie.id)
+tag15 = Tag.find_or_create_by(name: "barbell", user_id: charlie.id)
+tag16 = Tag.find_or_create_by(name: "bench jump", user_id: charlie.id)
+tag18 = Tag.find_or_create_by(name: "chest", user_id: charlie.id)
+tag20 = Tag.find_or_create_by(name: "tricep", user_id: charlie.id)
+tag21 = Tag.find_or_create_by(name: "bench", user_id: charlie.id)
+tag22 = Tag.find_or_create_by(name: "butterfly", user_id: charlie.id)
+tag23 = Tag.find_or_create_by(name: "chain press", user_id: charlie.id)
+tag24 = Tag.find_or_create_by(name: "Cable cross", user_id: charlie.id)
 
-tags = ["squat", "barbell squat", "Legs"].map do |tag_name|
-  charlie.tags.find_or_create_by(name: tag_name)
-end
 
 
 Tagging.create!([
-  {note_id: 18, tag_id: 9},
-  {note_id: 18, tag_id: 10},
-  {note_id: 19, tag_id: 11},
-  {note_id: 19, tag_id: 12},
-  {note_id: 21, tag_id: 14},
-  {note_id: 21, tag_id: 15},
-  {note_id: 21, tag_id: 11},
-  {note_id: 22, tag_id: 11},
-  {note_id: 22, tag_id: 16},
-  {note_id: 23, tag_id: 11},
-  {note_id: 24, tag_id: 18},
-  {note_id: 24, tag_id: 20},
-  {note_id: 25, tag_id: 18},
-  {note_id: 25, tag_id: 21},
-  {note_id: 26, tag_id: 21},
-  {note_id: 26, tag_id: 18},
-  {note_id: 26, tag_id: 15},
-  {note_id: 27, tag_id: 18},
-  {note_id: 28, tag_id: 18},
-  {note_id: 28, tag_id: 22},
-  {note_id: 29, tag_id: 18},
-  {note_id: 30, tag_id: 18},
-  {note_id: 31, tag_id: 18},
-  {note_id: 31, tag_id: 23},
-  {note_id: 32, tag_id: 18},
-  {note_id: 32, tag_id: 24},
-  {note_id: 33, tag_id: 18},
-  {note_id: 33, tag_id: 15}
+  {note_id: note18, tag_id: tag9},
+  {note_id: note18, tag_id: tag10},
+  {note_id: note19, tag_id: tag11},
+  {note_id: note19, tag_id: tag12},
+  {note_id: note21, tag_id: tag14},
+  {note_id: note21, tag_id: tag15},
+  {note_id: note21, tag_id: tag11},
+  {note_id: note22, tag_id: tag11},
+  {note_id: note22, tag_id: tag16},
+  {note_id: note23, tag_id: tag11},
+  {note_id: note24, tag_id: tag18},
+  {note_id: note24, tag_id: tag20},
+  {note_id: note25, tag_id: tag18},
+  {note_id: note25, tag_id: tag21},
+  {note_id: note26, tag_id: tag21},
+  {note_id: note26, tag_id: tag18},
+  {note_id: note26, tag_id: tag15},
+  {note_id: note27, tag_id: tag18},
+  {note_id: note28, tag_id: tag18},
+  {note_id: note28, tag_id: tag22},
+  {note_id: note29, tag_id: tag18},
+  {note_id: note30, tag_id: tag18},
+  {note_id: note31, tag_id: tag18},
+  {note_id: note31, tag_id: tag23},
+  {note_id: note32, tag_id: tag18},
+  {note_id: note32, tag_id: tag24},
+  {note_id: note33, tag_id: tag18},
+  {note_id: note33, tag_id: tag15}
 ])
