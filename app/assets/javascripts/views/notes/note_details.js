@@ -4,6 +4,7 @@ Fitnote.Views.NoteDetails = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, "sync reset add", this.render);
     this.listenTo(this.model, 'add change:title sync reset', this.render);
+    this.render();
     // this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
   },
 

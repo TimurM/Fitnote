@@ -15,6 +15,7 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   },
 
   render: function() {
+    console.log('trying to rendering tags');
     var noteContent = this.template({
       tags: this.collection
     })
