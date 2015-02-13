@@ -1,6 +1,4 @@
-charlie = User.find_or_create_by([
-  {email: "charlie@gmail.com", username: "Charlie", password_digest: "$2a$10$Ah4nfSE2tBKByDknITCKuO1D4PYW8JM7qtA/kOhYvoHgfV.Qhrg7O", session_token: "Qw3Eh36QSqa7NDwSi5DaIQ"}
-  ])
+charlie = User.find_or_create_by(email: "charlie@gmail.com", username: "Charlie", password_digest: "$2a$10$Ah4nfSE2tBKByDknITCKuO1D4PYW8JM7qtA/kOhYvoHgfV.Qhrg7O", session_token: "Qw3Eh36QSqa7NDwSi5DaIQ")
 
 notebook10 = Notebook.find_or_create_by(name: "Leg Exercises", owner_id: charlie.id )
 notebook11 = Notebook.find_or_create_by(name: "Chest Exercises", owner_id: charlie.id )
