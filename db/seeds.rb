@@ -37,7 +37,10 @@ tag22 = Tag.find_or_create_by(name: "butterfly", user_id: charlie.id)
 tag23 = Tag.find_or_create_by(name: "chain press", user_id: charlie.id)
 tag24 = Tag.find_or_create_by(name: "Cable cross", user_id: charlie.id)
 
-
+puts "IDs coming:"
+puts "#{note18.id}"
+puts "#{tag9.id}"
+puts "thats all folks"
 
 Tagging.create!([
   {note_id: note18.id, tag_id: tag9.id},
