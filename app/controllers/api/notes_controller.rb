@@ -13,7 +13,7 @@ module Api
     def show
       @note = Note.find(params[:id])
     end
-    # 
+    #
     # def new
     # end
 
@@ -36,7 +36,7 @@ module Api
       @note = Note.find(params[:id])
 
       if @note.update(note_params)
-        redirect_to api_note_url(@note)
+        render :show
       else
         render json: @note.errors.full_messages, status: :unprocessable_entity
       end

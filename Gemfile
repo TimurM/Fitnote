@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
+gem 'seed_dump'
 
 
 
