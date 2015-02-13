@@ -1,3 +1,9 @@
+User.create!([
+  {email: "timurtwin@aol.com", username: "timurtwin", password_digest: "$2a$10$CtuKhDHyKtkLDLcXBn5g1u6exm6cqVQxBt58EeiJnxC72MyJIgbAO", session_token: "Xqu884V6tY3INCfAZ4rE3w"},
+  {email: "ned@appacademy.io", username: "ned", password_digest: "$2a$10$e50ceXM/8GEjqJ0lHxGh9OSsngeUDlHv8F6TxL./2yRoVAtec2e7q", session_token: "VRMAfi20wIPtv5Z9ahYLZQ"},
+  {email: "jeff@jeff.jeff", username: "jeff", password_digest: "$2a$10$It/hLOX.EE7URsY6nFzq1.Jl6dmEFkDODEbYnHfR2bZajFtOeTmQS", session_token: "nnt7os0hIJN0nMO3DpRWgw"}
+])
+jeff = User.find_by_username("jeff")
 Note.create!([
   {notebook_id: 42, title: "Untitledasdads", body: "\"\"David is the man!!! dddddd \"asdfasdfasdf\"\"\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"fhhffhfh\"asdf\"asdf\"asdfasdf\"\"\""},
   {notebook_id: 4, title: "Workout 1", body: "This is another great note"},
@@ -10,7 +16,7 @@ Note.create!([
 ])
 Notebook.create!([
   {name: "ned's notes", owner_id: 2},
-  {name: "jeff's notes", owner_id: 3},
+  {name: "jeff's notes", owner: jeff},
   {name: "First Notebook", owner_id: 1},
   {name: "Second Notebook", owner_id: 1},
   {name: "Third Notebook", owner_id: 1}
@@ -34,9 +40,4 @@ Tagging.create!([
   {note_id: 38, tag_id: 50},
   {note_id: 41, tag_id: 56},
   {note_id: 41, tag_id: 57}
-])
-User.create!([
-  {email: "timurtwin@aol.com", username: "timurtwin", password_digest: "$2a$10$CtuKhDHyKtkLDLcXBn5g1u6exm6cqVQxBt58EeiJnxC72MyJIgbAO", session_token: "Xqu884V6tY3INCfAZ4rE3w"},
-  {email: "ned@appacademy.io", username: "ned", password_digest: "$2a$10$e50ceXM/8GEjqJ0lHxGh9OSsngeUDlHv8F6TxL./2yRoVAtec2e7q", session_token: "VRMAfi20wIPtv5Z9ahYLZQ"},
-  {email: "jeff@jeff.jeff", username: "jeff", password_digest: "$2a$10$It/hLOX.EE7URsY6nFzq1.Jl6dmEFkDODEbYnHfR2bZajFtOeTmQS", session_token: "nnt7os0hIJN0nMO3DpRWgw"}
 ])

@@ -12,7 +12,6 @@ Fitnote.Views.NoteDetails = Backbone.CompositeView.extend({
       note: this.model
     })
     this.$el.html(form);
-    // setTimeout(this.renderNoteContent.bind(this));
     this.renderNoteContent();
     this.renderBottomHeader();
     this.renderTopHeader();

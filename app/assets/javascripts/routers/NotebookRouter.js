@@ -59,7 +59,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
             model: this._notebook
           });
         this._swapView(NotesIndex, "#note-list-items");
-        // this.ensureNoteShow();
       }
     }
   },
@@ -76,6 +75,7 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
           this._note = this._notebook.notes().first();
         }
       }
+
       if(this._note) {
         var noteDetailShow = new Fitnote.Views.NoteDetails({
           model: this._note
@@ -140,7 +140,7 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
       },
       success: function () {
         that.ensureNoteShow(searchResults);
-        
+
       }
     });
     var searchNotesIndex = new Fitnote.Views.NotesIndex({
