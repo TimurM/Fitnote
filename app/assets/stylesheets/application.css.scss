@@ -15,6 +15,11 @@
  @import "bootstrap";
  @import "bootstrap";
 
+ html, body
+ {
+   height: 100%;
+ }
+
  body {
   //  background: url('background.jpg');
   //  display: compact;
@@ -38,6 +43,17 @@
   margin: 0px;
   padding: 0px;
 }
+
+.row {
+  height: 100%;
+  margin-right: 0px;
+}
+
+// .row-main {
+//   margin-right: 0px;
+//   margin-left: -15px;
+//   padding-right: 10px;
+// }
 
 #sign-in-form {
   margin-top: 200px;
@@ -135,7 +151,7 @@
 
 .subheader {
   background: #F0F0F0;
-  padding: 10px;
+  padding-top: 10px;
   display: block;
   margin: 0px;
   height: 60px;
@@ -204,6 +220,7 @@ div.new-btn > a:hover {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border: 1px solid #b3b3b3;
+  border-right: none;
 }
 
 .search-bar > div > .submit {
@@ -222,8 +239,10 @@ div.new-btn > a:hover {
 }
 
 #content {
-  position: relative;
+  position: absolute;
   width: 100%;
+  top: 92px;
+  bottom: 0;
   // background: yellow;
 }
 
@@ -251,6 +270,8 @@ div.new-btn > a:hover {
   background: white;
   display: block;
   // width: 100%;
+  height: 100%;
+  border-right: 1px solid #b3b3b3;
   border-top: 1px solid #b3b3b3;
   border-bottom: 1px solid #b3b3b3;
 }
@@ -260,9 +281,9 @@ div.new-btn > a:hover {
   background: #F0F0F0;
   display: block;
   // width: 100%;
-  border: 1px solid #b3b3b3;
+  border-top: 1px solid #b3b3b3;
   padding-left: 0px;
-  padding-right: 20px;
+  padding-right: 0px;
 }
 
 .sidebar-notebooks-item {
@@ -335,12 +356,12 @@ ul.dropdown-menu.dropdown-menu-right {
 ul.notebooks-list-group {
   padding-top: 8px;
   padding-left: 0px;
-  border-bottom: 1px solid #ced8df;
   list-style: none;
   display: block;
   font-family: sans-serif;
   font-size: 16px;
-  height: 300px;
+  // height: 300px;
+  min-height: 200px;
   padding-bottom: 16px;
   width: 100%;
   margin-left: 0px;
@@ -513,7 +534,7 @@ div.notes-shortview {
   border-radius: 3px;
   margin: 12px;
   padding: 10px;
-  min-height: 336px;
+  min-height: 500px;
   overflow: auto;
 }
 
@@ -532,7 +553,7 @@ div.notes-shortview {
 
 
 .form-control#body {
-  min-height: 300px;
+  min-height: 480px;
   overflow-y: hidden;
   border-radius: 0px;
   font-size: 14px;
@@ -551,55 +572,73 @@ div.notes-shortview {
   display: block;
   padding: 0px;
   margin: 0px;
-  height: 34px;
+  height: 44px;
   border-bottom: 1px solid #b3b3b3;
 }
 
-.new-tag {
-  display: inline-block;
+.note-form-bottom {
+  // display: block;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+
+.header-new-tag {
+  // display: inline-block;
   float: left;
-  width: 50px;
   padding-right: 5px;
-  width: 115px;
-  height: 30px;
+  height: 20px;
   background: #cddde5;
-  padding: 2px 10px;
+  padding-left: 10px;
+  padding-bottom: 2px;
   border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
   margin-right: 5px;
+  list-style: none;
 }
 
-.new-tag > input {
-  width: 60px;
+.header-new-tag > .text-input {
+  width: 50px;
+  height: 20px;
+  font-size: 12px;
   border: none;
+  background: #cddde5;
+  border-radius: 10px;
+  padding-left: 0px;
 }
 
-.tags {
+.header-tags {
   float: left;
   position: relative;
 }
 
-.tag {
+// .header-tag {
+//   float: left;
+//   display: block;
+//   width: 115px;
+//   height: 30px;
+//   background: #cddde5;
+//   padding: 2px 10px;
+//   border-radius: 10px;
+//   margin-right: 5px;
+// }
+
+.header-new-tag > h2 {
   float: left;
-  display: block;
-  width: 115px;
-  height: 30px;
+  font-size: 12px;
+  color: #6a6a6a;
+  margin: 0px;
+  margin-right: 5px;
+  line-height: 20px;
+}
+
+.header-new-tag > button {
+  float: right;
+  font-size: 12px;
+  color: #6a6a6a;
   background: #cddde5;
-  padding: 2px 10px;
-  border-radius: 10px;
-  margin-right: 5px;
-}
-
-.tag > h2 {
-  float: left;
-  font-size: 12px;
-  color: #6a6a6a;
-  margin-right: 5px;
-}
-
-.tag > button {
-  float: left;
-  font-size: 12px;
-  color: #6a6a6a;
-  background: none;
+  border: none;
   padding: 0 2px;
 }

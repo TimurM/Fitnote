@@ -1,12 +1,14 @@
-<div class="new-tag" >
-    <input type="text" name="name" placeholder="add tag"></input>
+
+<div class="input-group header-new-tag">
+  <input type="text" class="form-control text-input" name="name" placeholder="+ Tag" aria-describedby="basic-addon2">
 </div>
 
-<ul class="tags group">
+
+<ul class="header-tags group">
     <% tags.each(function(tag) { %>
-    <li class="tag group">
+    <li class="header-new-tag group">
         <h2><%= tag.escape('name') %></h2>
-        <button class="remove-tag" data-id="<%= tag.id %>">x</button>
+        <button class="header-remove-tag" data-id="<%= tag.id %>">x</button>
     </li>
     <% }) %>
 </ul>

@@ -140,6 +140,7 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
       },
       success: function () {
         that.ensureNoteShow(searchResults);
+        
       }
     });
     var searchNotesIndex = new Fitnote.Views.NotesIndex({

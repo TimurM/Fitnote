@@ -3,24 +3,24 @@
   <div class="notebooks-header-left">
     Tags
   </div>
-</div>
 
-<div class="notebooks-header-right">
-    <div class="dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          <span class="glyphicon glyphicon-collapse-down"></span>
-        </button>
+  <div class="notebooks-header-right">
+      <div class="dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            <span class="glyphicon glyphicon-collapse-down"></span>
+          </button>
 
-        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a class="new-tags" role="menuitem" tabindex="-1" href="#">New Tag</a></li>
-        </ul>
-    </div>
+          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a class="new-tags" role="menuitem" tabindex="-1" href="#">New Tag</a></li>
+          </ul>
+      </div>
+  </div>
 </div>
 
 <ul class="notebooks notebooks-list-group">
   <% tags.each(function(tag) { %>
     <li>
-      <i class='glyphicon glyphicon-book'></i>
+      <i class='glyphicon glyphicon-tag'></i>
       <a href="#" class="tag-click" name="<%= tag.escape('name')%>" data-id="<%= tag.id %>">
       <%= tag.escape('name') %></a>
 

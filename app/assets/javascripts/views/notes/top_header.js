@@ -10,8 +10,8 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   },
 
   events: {
-    "blur .new-tag > input" : "addTag",
-    "click .remove-tag": "removeTag"
+    "blur .header-new-tag > input" : "addTag",
+    "click .header-remove-tag": "removeTag"
   },
 
   render: function() {

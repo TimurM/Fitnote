@@ -46,7 +46,7 @@ Fitnote.Views.NoteDetails = Backbone.CompositeView.extend({
     var noteBottom = new Fitnote.Views.NoteBottomHeader({
       model: note
     });
-    this.addSubview(".note-form-buttom", noteBottom);
+    this.addSubview(".note-form-bottom", noteBottom);
   },
 
   renderBottomHeader: function() {
