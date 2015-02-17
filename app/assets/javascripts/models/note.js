@@ -7,7 +7,7 @@ Fitnote.Models.Note = Backbone.Model.extend({
         [], { note: this }
       )
     }
-    return this._tags
+    return this._tags;
   },
 
   parse: function(response) {

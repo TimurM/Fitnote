@@ -1,28 +1,48 @@
-<h2>Sign Up</h2>
+<div id="sign-in-form">
+  <h1>Fitness Companion</h1>
+  <p>Fitnote makes your fitness manageable by letting you collect and access everything that matters.</p>
+  <form class="demo" action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user[email]" value="charlie@gmail.com">
+    <input type="hidden" name="user[password]" value="password">
+    <input type="submit" class="btn evernote-green" value="Try The Demo">
+  </form>
 
-<form action="<%= users_url %>" method="post">
-  <input
-  type="hidden"
-  name="authenticity_token"
-  value="<%= form_authenticity_token %>">
+  <p>- Or Sign Up -</p>
 
-  <label>
-    Username
-    <input type="text" name="user[username]" value="">
-  </label>
-  <br>
-  <br>
-  <label>
-    Email
-    <input type="text" name="user[email]" value="">
-  </label>
-  <br>
-  <br>
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
-  <br>
-  <br>
-  <input type="submit" value="Sign Up">
-</form>
+  <form class="form-horizontal sign-in" action="<%= users_url %>" method="post">
+    <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+    <div class="form-group">
+      <label for="inputUsername" class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <input type="text" name="user[username]" class="form-control" id="inputUsername" placeholder="Username">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <input type="email" name="user[email]" class="form-control" id="inputEmail3" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label"></label>
+      <div class="col-sm-10">
+        <input type="password" name="user[password]" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="sign-button col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn evernote-green">Sign up</button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <a href="<%= new_session_url %>" class="sign-up-link">Click here to Sign In</a>
+  </div>
+</div>

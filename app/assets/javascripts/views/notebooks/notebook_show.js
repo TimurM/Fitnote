@@ -2,7 +2,8 @@ Fitnote.Views.NotebookShow = Backbone.CompositeView.extend({
   template: JST['notebooks/show'],
 
   events: {
-    "click .note-heading" : 'renderNote'
+    "click .note-heading" : 'renderNote',
+    "click .notebook-heading" : "selectedNotebook"
   },
 
   initialize: function() {
@@ -37,7 +38,13 @@ Fitnote.Views.NotebookShow = Backbone.CompositeView.extend({
     var noteId = $clickedNote.attr('data-note-id');
 
     Backbone.history.navigate("/notes/" + noteId, {trigger: true});
+  },
+
+  selectedNotebook: function(event) {
+    var $clickedNotebook = $(event.currentTarget);
+
+    // $('.notebook-heading').removeClass('selected-notebook');
+    $clickedNotebook.addClass('selected-notebook');
+
   }
 });
-
-_.extend(Fitnote.Views.NotebookShow.prototype);

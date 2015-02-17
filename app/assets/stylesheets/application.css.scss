@@ -56,10 +56,10 @@
 // }
 
 #sign-in-form {
-  margin-top: 200px;
+  margin-top: 120px;
   margin-left: 50px;
   width: 430px;
-  height: 480px;
+  min-height: 500px;
   padding-top: 15px;
   padding-right: 25px;
   padding-left: 25px;
@@ -105,6 +105,18 @@
   font-size: 14px;
 }
 
+.sign-up-link {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  color: #757778;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.alert {
+  margin-top: 30px;
+}
 .navbar-default .navbar-right {
   margin-bottom: 10px;
 }
@@ -401,6 +413,10 @@ ul.notebooks-list-group > li {
 }
 
 ul.notebooks-list-group > li:hover {
+  background: #d1d4d7;
+}
+
+.selected-notebook {
   background: #d1d4d7;
 }
 

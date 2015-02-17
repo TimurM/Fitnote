@@ -19,9 +19,8 @@
 
 <ul class="notebooks notebooks-list-group">
   <% notebooks.each(function(notebook) { %>
-    <li>
+    <li class="notebook-heading" data-notebook-id="<%= notebook.id %>">
       <i class='glyphicon glyphicon-book'></i>
-      <a href="#/notebooks/<%= notebook.id %>">
         <%= notebook.escape('name') %>
       </a>
 

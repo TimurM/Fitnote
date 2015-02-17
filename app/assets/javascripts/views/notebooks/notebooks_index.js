@@ -8,7 +8,8 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
 
   events: {
     "click .new-notebook": "newNotebook",
-    "click .delete-notebook": "removeNotebook"
+    "click .delete-notebook": "removeNotebook",
+    "click .notebook-heading" : "renderNotebook"
   },
 
   newNotebook: function(event){
@@ -38,5 +39,13 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
 
     this.$el.html(content);
     return this;
+  },
+
+  renderNotebook: function(event) {
+    // $('.notebook-heading').removeClass('selected-notebook');
+    var $clickedNotebook = $(event.currentTarget);
+    $clickedNotebook.addClass('selected-notebook');
+    var notebookId = $clickedNotebook.attr('data-notebook-id');
+    Backbone.history.navigate("/notebooks/" + notebookId, {trigger: true});
   }
 })

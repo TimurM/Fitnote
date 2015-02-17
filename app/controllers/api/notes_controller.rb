@@ -2,20 +2,29 @@ module Api
   class NotesController < ApiController
 
     def index
-      @keyword = params[:query]
+      @keyword = params[:query].downcase
       @tag = current_user.tags.find_by(name: @keyword)
 
-      @notes = @tag.try(:notes) ||
-      (current_user.notes.where('title LIKE ?', "%#{@keyword}%").all || current_user.notes.where('body LIKE ?', "%#{@keyword}%").all) ||
-      current_user.notes
-    end
+      # @notes = @tag.try(:notes) ||
+      # current_user.notes.where('title LIKE ?', "%#{@keyword}%").all ||
+      # current_user.notes.where('body LIKE ?', "%#{@keyword}%").all ||
+      # current_user.notes
+      @notes = []
+
+      if @keyword
+        (@notes.concat(@tag.notes)) if !@tag.nil?
+        @notes.concat(current_user.notes.where('title LIKE ?', "%#{@keyword}%").all)
+        @notes.concat(current_user.notes.where('body LIKE ?', "%#{@keyword}%").all)
+      else 
+        @notes = current_user.notes
+      end
+      # fail
+  end
 
     def show
       @note = Note.find(params[:id])
     end
-    #
-    # def new
-    # end
+
 
     def create
       @note = Note.new(note_params)

@@ -9,8 +9,7 @@ Fitnote.Views.NotesIndex = Backbone.CompositeView.extend({
   initialize: function() {
     this.collection.each(this.addNote.bind(this));
     this.listenTo(this.collection, 'add', this.addNote);
-    // this.listenTo(this.model, 'add change:title sync reset', this.render);
-    // this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
+    this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
   },
 
   render: function() {
@@ -28,7 +27,6 @@ Fitnote.Views.NotesIndex = Backbone.CompositeView.extend({
   },
 
   renderNotes: function() {
-    // var that = this;
     this.collection.each(this.addNote.bind(this));
   },
 

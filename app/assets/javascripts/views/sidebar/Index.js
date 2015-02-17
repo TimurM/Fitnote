@@ -12,8 +12,6 @@ Fitnote.Views.Index = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template();
     this.$el.html(content);
-    // this.renderNotebooks();
-    // this.renderTags();
     this.attachSubviews();
     return this;
   },

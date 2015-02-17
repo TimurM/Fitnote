@@ -2,7 +2,6 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   template: JST['notes/top_header'],
 
   initialize: function() {
-    Fitnote.tags.fetch();
     this.collection = this.model.tags();
     this.listenTo(Fitnote.tags, "sync reset add remove", this.render);
     this.listenTo(this.model, "sync reset add remove", this.render);
@@ -15,7 +14,6 @@ Fitnote.Views.NoteTopHeader = Backbone.View.extend({
   },
 
   render: function() {
-    console.log('trying to rendering tags');
     var noteContent = this.template({
       tags: this.collection
     })

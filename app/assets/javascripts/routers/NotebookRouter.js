@@ -6,7 +6,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     this.$rootEl = $('#note-list-items');
     this.$notedetail = $('#note-show-detail');
     this.index();
-    // this.ensureViews();
   },
 
   routes: {
@@ -14,7 +13,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
     '1' : 'landingPage',
     "notes/new" : 'newNote',
     "notes/:id": 'noteShow',
-    // "notebooks/:id/notes/:note_id": 'noteShow',
     "notebooks/:id" : 'notebookShow',
     "search/:keyword": "search"
   },
@@ -22,14 +20,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
   // added a callback in a case  user tries to navigate directly to a note
   index: function(notebook_id, callback) {
     Fitnote.notebooks.fetch({
-      // success: function() {
-      //   if (callback) {
-      //     callback();
-      //   } else {
-      //     var firstNotebook = Fitnote.notebooks.models[0];
-      //     Backbone.history.navigate("/notebooks/" + firstNotebook.id, {trigger: true});
-      //   }
-      // },
       success: function () {
         if (!this._currentView[".sidebar-sections"]) {
           var indexView = new Fitnote.Views.Index({
@@ -41,9 +31,6 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
         }
       }.bind(this)
     });
-
-
-    // this.$sidebar.html(indexView.render().$el);
   },
 
   ensureNotebookShow: function() {
@@ -103,13 +90,18 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
   },
 
   noteShow: function(id) {
-        var note = Fitnote.notes.getOrFetch(id);
+        var note = Fitnote.notes.getOrFetch(id),
+        that = this;
 
-        var noteDetailShow = new Fitnote.Views.NoteDetails({
-          model: note
+        note.fetch({
+          success: function() {
+            var noteDetailShow = new Fitnote.Views.NoteDetails({
+              model: note
+            });
+
+            that._swapView(noteDetailShow, '#note-show-detail');
+          },
         });
-
-        this._swapView(noteDetailShow, '#note-show-detail');
   },
 
   newNote: function() {
@@ -143,6 +135,8 @@ Fitnote.Routers.NotebookRouter = Backbone.Router.extend({
 
       }
     });
+    $('#search-box').val(keyword)
+
     var searchNotesIndex = new Fitnote.Views.NotesIndex({
       collection: searchResults
     });
