@@ -2,11 +2,13 @@ Fitnote.Views.NoteShow = Backbone.View.extend({
   template: JST['notes/update_form'],
 
   initialize: function() {
-    this.listenTo(this.model, "sync reset add", this.render);
+    // this.listenTo(this.model, "sync change reset add", this.render);
+    this.listenTo(this.model, "change", this.render);
   },
 
   events: {
     'submit form' : 'update',
+    'blur #note-title, #body' : 'update'
   },
 
   render: function() {

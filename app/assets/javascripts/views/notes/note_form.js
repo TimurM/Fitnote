@@ -2,7 +2,8 @@ Fitnote.Views.NoteForm = Backbone.View.extend({
   template: JST['notes/form'],
   tagname: 'form',
   events: {
-    'submit form': 'submit'
+    'submit form': 'submit',
+    'blur #note-title, #body' : 'submit'
   },
 
   render: function() {
@@ -25,7 +26,7 @@ Fitnote.Views.NoteForm = Backbone.View.extend({
           Backbone.history.navigate("/notes/" + that.model.id, {trigger: true })
         },
         error: function (model, response) {
-          debugger;
+
         }
       });
   }

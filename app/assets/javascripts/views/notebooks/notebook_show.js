@@ -10,7 +10,8 @@ Fitnote.Views.NotebookShow = Backbone.CompositeView.extend({
     this.model.fetch();
     this.collection = this.model.notes();
     this.listenTo(this.model, 'add change:title sync reset', this.render);
-    this.listenTo(this.collection, 'add change:title change:body sync reset', this.render);
+    this.listenTo(this.collection, 'add sync reset', this.render);
+    this.listenTo(this.collection, 'change:title change:body', this.renderNotes);
   },
 
   render: function() {
