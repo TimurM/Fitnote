@@ -11,6 +11,9 @@
 
 <script>
   <% if signed_in? %>
-      analytics.track('Account Created')
+  analytics.identify('f4ca124298', {
+    name: 'Michael Bolton',
+    email: 'mbolton@initech.com'
+    });
   <% end %>
 </script>

@@ -32,7 +32,6 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
   },
 
   render: function() {
-    fail
     var content = this.template({
       notebooks: this.collection
     });
