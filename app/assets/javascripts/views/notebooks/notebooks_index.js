@@ -14,7 +14,6 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
 
   newNotebook: function(event){
     event.preventDefault();
-
     var newNoteBook = new Fitnote.Models.Notebook();
     var $form = new Fitnote.Views.NotebookForm({
       model: newNoteBook,
@@ -33,6 +32,7 @@ Fitnote.Views.NotebooksIndex = Backbone.View.extend({
   },
 
   render: function() {
+    fail
     var content = this.template({
       notebooks: this.collection
     });
